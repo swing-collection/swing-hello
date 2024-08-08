@@ -28,7 +28,8 @@ logic.
 from django.urls import path
 
 # Import | Local Modules
-from .views import HelloResponseView, HelloTemplateView
+from swing_hello.views.view_hello_response import HelloResponseView
+from swing_hello.views.view_hello_template import HelloTemplateView
 
 
 # =============================================================================
