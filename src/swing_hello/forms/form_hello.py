@@ -32,6 +32,7 @@ from typing import Any
 # Import | Libraries
 from django import forms
 from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 # Import | Local Modules
 # (No local imports required)
@@ -63,11 +64,11 @@ class HelloForm(forms.Form):
     """
 
     name: forms.CharField = forms.CharField(
-        label= "Your Name",
+        label = _("Your Name"),
         max_length = 100,
         required = True,
-        widget = forms.TextInput(attrs={"placeholder": "Enter your name"}),
-        help_text = "Please enter your full name.",
+        widget = forms.TextInput(attrs={"placeholder": _("Enter your name")}),
+        help_text = _("Please enter your full name."),
     )
 
     def clean_name(self) -> str:
