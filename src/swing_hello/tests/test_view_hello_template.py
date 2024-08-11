@@ -17,7 +17,9 @@ and API endpoints.
 Classes:
 --------
 
-- TestHelloTemplateView: Contains tests for `hello_template_view` and `HelloTemplateView`.
+- TestHelloTemplateView: Contains tests for `hello_template_view` and
+`HelloTemplateView`.
+
 """
 
 # =============================================================================
@@ -30,19 +32,15 @@ from typing import Any
 # Import | Libraries
 import pytest
 from django.test import RequestFactory, HttpRequest
-from django.http import HttpResponse, JsonResponse
-from rest_framework.test import APIRequestFactory
+from django.http import HttpResponse
+from django.utils.translation import gettext as _
 
 # Import | Local Modules
-from swing_hello.views import (
-    hello_response_view,
-    HelloResponseView,
+from swing_hello.views.view_hello_template import (
     hello_template_view,
     HelloTemplateView,
 )
-from swing_hello.views.view_hello_json import hello_json_view, HelloJsonView
-from swing_hello.views.view_hello_form import hello_form_view, HelloFormView
-from swing_hello.views.view_hello_api import HelloApiView
+
 
 # =============================================================================
 # Test Classes
@@ -62,39 +60,66 @@ class TestHelloTemplateView:
 
     def setup_method(self) -> None:
         """
-        Setup the RequestFactory for use in test methods.
+        Setup Method
+        ============
 
-        The RequestFactory is used to simulate GET requests in the test methods.
+        Initializes the RequestFactory for use in test methods.
+
+        The RequestFactory is used to simulate GET requests in the test
+        methods.
         """
         self.factory: RequestFactory = RequestFactory()
 
     def test_hello_template_view_function(self) -> None:
         """
-        Test GET request handling for `hello_template_view`.
+        Test hello_template_view Function (GET Request)
+        ===============================================
 
-        Ensures that the function-based view renders the correct template and includes 
-        the expected content "Hello!" and "Lorem ipsum dolor sit amet".
+        Tests GET request handling for the `hello_template_view`
+        function-based view.
+
+        Ensures that the function-based view renders the correct template 
+        and includes the expected content "Hello!" and "Lorem ipsum dolor
+        sit amet".
+
+        Assertions:
+        -----------
+        - The response status code should be 200 (OK).
+        - The response content should include "Hello!" and "Lorem ipsum dolor
+          sit amet".
         """
-        request: HttpRequest = self.factory.get('/hello/template')
+        request: HttpRequest = self.factory.get("/hello/template")
         response: HttpResponse = hello_template_view(request)
-        
+
         assert response.status_code == 200
-        assert "Hello!" in response.content.decode()
+        assert _("Hello!") in response.content.decode()
         assert "Lorem ipsum dolor sit amet" in response.content.decode()
 
     def test_hello_template_view_class(self) -> None:
         """
-        Test GET request handling for `HelloTemplateView`.
+        Test HelloTemplateView Class (GET Request)
+        ==========================================
 
-        Ensures that the class-based view renders the correct template and includes 
-        the expected content "Hello!" and "Lorem ipsum dolor sit amet".
+        Tests GET request handling for the `HelloTemplateView` class-based
+        view.
+
+        Ensures that the class-based view renders the correct template 
+        and includes the expected content "Hello!" and "Lorem ipsum dolor sit
+        amet".
+
+        Assertions:
+        -----------
+        - The response status code should be 200 (OK).
+        - The response content should include "Hello!" and "Lorem ipsum dolor
+        sit amet".
         """
-        request: HttpRequest = self.factory.get('/hello/template')
+        request: HttpRequest = self.factory.get("/hello/template")
         response: HttpResponse = HelloTemplateView.as_view()(request)
-        
+
         assert response.status_code == 200
-        assert "Hello!" in response.content.decode()
+        assert _("Hello!") in response.content.decode()
         assert "Lorem ipsum dolor sit amet" in response.content.decode()
+
 
 # =============================================================================
 # Module Exports
