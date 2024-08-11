@@ -32,9 +32,13 @@ from typing import Any
 import pytest
 from django.test import RequestFactory, HttpRequest
 from django.http import HttpResponse
+from django.utils.translation import gettext as _
 
 # Import | Local Modules
-from swing_hello.views.view_hello_form import hello_form_view, HelloFormView
+from swing_hello.views.view_hello_form import (
+    hello_form_view,
+    HelloFormView
+)
 
 
 # =============================================================================
@@ -90,7 +94,7 @@ class TestHelloFormView:
         response: HttpResponse = hello_form_view(request)
 
         assert response.status_code == 200
-        assert "Hello, Alice!" in response.content.decode()
+        assert _("Hello, Alice!") in response.content.decode()
 
     def test_hello_form_view_class_get(self) -> None:
         """
