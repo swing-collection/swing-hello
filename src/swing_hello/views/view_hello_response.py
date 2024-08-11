@@ -20,7 +20,7 @@ Functions:
 
 Classes:
     - HelloResponseView: A class-based view that returns "Hello!" on GET
-        request.
+      request.
 
 """
 
@@ -33,11 +33,10 @@ from typing import Any, Dict
 
 # Import | Libraries
 from django.http import HttpRequest, HttpResponse
-# from django.shortcuts import render
 from django.views import View
+from django.utils.translation import gettext as _
 
 # Import | Local Modules
-
 
 
 # =============================================================================
@@ -45,23 +44,23 @@ from django.views import View
 # =============================================================================
 
 def hello_response_view(
-    request: HttpRequest
+    request: HttpRequest,
 ) -> HttpResponse:
     """
-    Hello Response View Definition
-    =============================
+    Hello Response View Function
+    ============================
 
     A simple function-based view that returns a plain text "Hello!" response.
 
     Parameters:
-    request (HttpRequest): The HTTP request object.
+        - request (HttpRequest): The HTTP request object.
 
     Returns:
-    HttpResponse: A response object with "Hello!" text.
+        - HttpResponse: A response object with "Hello!" text.
 
     """
 
-    context = "Hello!"
+    context: str = _("Hello!")
 
     return HttpResponse(
         context,
@@ -82,28 +81,30 @@ class HelloResponseView(View):
     GET request.
 
     Methods:
-    get(request, *args, **kwargs): Handles GET requests and returns
-    "Hello!" text.
+        - get(request, *args, **kwargs): Handles GET requests and returns
+          "Hello!" text.
 
     """
 
     def get(
-        self, request: HttpRequest,
-        *args: Any, **kwargs: Dict[str, Any]
+        self,
+        request: HttpRequest,
+        *args: Any,
+        **kwargs: Dict[str, Any],
     ) -> HttpResponse:
         """
         Handles GET requests and returns a plain text "Hello!" response.
 
         Parameters:
-        request (HttpRequest): The HTTP request object.
-        *args (Any): Variable length argument list.
-        **kwargs (Dict[str, Any]): Arbitrary keyword arguments.
+            - request (HttpRequest): The HTTP request object.
+            - *args (Any): Variable length argument list.
+            - **kwargs (Dict[str, Any]): Arbitrary keyword arguments.
 
         Returns:
-        HttpResponse: A response object with "Hello!" text.
+            - HttpResponse: A response object with "Hello!" text.
         """
 
-        context = "Hello!"
+        context: str = _("Hello!")
 
         return HttpResponse(
             context,
