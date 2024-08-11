@@ -17,7 +17,9 @@ and API endpoints.
 Classes:
 --------
 
-- TestHelloResponseView: Contains tests for `hello_response_view` and `HelloResponseView`.
+- TestHelloResponseView: Contains tests for `hello_response_view` and `
+  HelloResponseView`.
+
 """
 
 # =============================================================================
@@ -30,19 +32,15 @@ from typing import Any
 # Import | Libraries
 import pytest
 from django.test import RequestFactory, HttpRequest
-from django.http import HttpResponse, JsonResponse
-from rest_framework.test import APIRequestFactory
+from django.http import HttpResponse
+from django.utils.translation import gettext as _
 
 # Import | Local Modules
-from swing_hello.views import (
+from swing_hello.views.view_hello_response import (
     hello_response_view,
-    HelloResponseView,
-    hello_template_view,
-    HelloTemplateView,
+    HelloResponseView
 )
-from swing_hello.views.view_hello_json import hello_json_view, HelloJsonView
-from swing_hello.views.view_hello_form import hello_form_view, HelloFormView
-from swing_hello.views.view_hello_api import HelloApiView
+
 
 # =============================================================================
 # Test Classes
@@ -75,9 +73,9 @@ class TestHelloResponseView:
         Ensures that the function-based view returns the correct HTTP response 
         with the content "Hello!".
         """
-        request: HttpRequest = self.factory.get('/hello/response')
+        request: HttpRequest = self.factory.get("/hello/response")
         response: HttpResponse = hello_response_view(request)
-        
+
         assert response.status_code == 200
         assert response.content.decode() == "Hello!"
 
@@ -88,11 +86,12 @@ class TestHelloResponseView:
         Ensures that the class-based view returns the correct HTTP response 
         with the content "Hello!".
         """
-        request: HttpRequest = self.factory.get('/hello/response')
+        request: HttpRequest = self.factory.get("/hello/response")
         response: HttpResponse = HelloResponseView.as_view()(request)
-        
+
         assert response.status_code == 200
-        assert response.content.decode() == "Hello!"
+        assert response.content.decode() == _("Hello!")
+
 
 # =============================================================================
 # Module Exports
