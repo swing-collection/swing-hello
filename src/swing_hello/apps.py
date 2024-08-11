@@ -39,7 +39,7 @@ class HelloConfig(AppConfig):
 
     """
 
-    name = "swing.hello"
-    label = "swing.hello"
+    name = "swing_hello"
+    label = "swing_hello"
     verbose_name = _("Swing Hello")
     default_auto_field = "django.db.models.BigAutoField"
