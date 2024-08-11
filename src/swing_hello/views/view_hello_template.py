@@ -17,11 +17,11 @@ Django view functionality with templates.
 
 Functions:
     - hello_template_view: A function-based view that renders a template with
-        a context.
+      a context.
 
 Classes:
     - HelloTemplateView: A class-based view that renders a template with
-        a context.
+      a context.
 
 """
 
@@ -36,27 +36,35 @@ from typing import Any, Dict
 # Import | Libraries
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
+from django.utils.translation import gettext as _
+
+# Import | Local Modules
 
 
 # =============================================================================
 # Function
 # =============================================================================
 
-def hello_template_view(request: Any) -> Any:
+def hello_template_view(
+    request: Any,
+) -> Any:
     """
+    Hello Template View Function
+    ============================
+
     A function-based view that renders a template with a given context.
 
     Parameters:
-    request (HttpRequest): The HTTP request object.
+        - request (HttpRequest): The HTTP request object.
 
     Returns:
-    HttpResponse: A response object that renders the 'hello.html' template
-        with the provided context.
+        - HttpResponse: A response object that renders the 'hello.html'
+          template with the provided context.
 
-            """
+    """
 
     context: Dict[str, str] = {
-        "title": "Hello!",
+        "title": _("Hello!"),
         "content": "Lorem ipsum dolor sit amet",
     }
     return render(request, "hello.html", context)
@@ -68,31 +76,39 @@ def hello_template_view(request: Any) -> Any:
 
 class HelloTemplateView(TemplateView):
     """
+    Hello Template View Class
+    =========================
+
     A class-based view that renders a template with a given context.
 
     Attributes:
-    template_name (str): The name of the template to be rendered.
+        - template_name (str): The name of the template to be rendered.
 
     """
 
     template_name = "hello.html"
 
-    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+    def get_context_data(
+        self,
+        **kwargs: Any,
+    ) -> Dict[str, Any]:
         """
         Returns context for rendering the template.
 
         Parameters:
-        *args (Any): Variable length argument list.
-        **kwargs (Dict[str, Any]): Arbitrary keyword arguments.
+            - *args (Any): Variable length argument list.
+            - **kwargs (Dict[str, Any]): Arbitrary keyword arguments.
 
         Returns:
-        dict: A dictionary containing context data for the template.
+            - dict: A dictionary containing context data for the template.
 
         """
 
         context: Dict[str, Any] = super().get_context_data(**kwargs)
-        context["title"] = "Hello!"
+
+        context["title"] = _("Hello!")
         context["content"] = "Lorem ipsum dolor sit amet"
+
         return context
 
 
