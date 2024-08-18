@@ -1,15 +1,40 @@
 cff-version: 1.2.0
-title: swing-hello
+title: "Swing Hello"
 version: 0.1.0
 date-released: 2024-07-01
 url: "https://github.com/scape-agency/swing-hello"
 message: >-
-  If you use this software, please cite it using
-  the metadata from this file.
+  If you use this software, please cite it using the metadata from this file.
 type: software
+repository-code: "https://github.com/scape-agency/swing-hello"
+license: BSD-3-Clause
+abstract: >
+  Swing Hello is a Django application that provides basic views for 
+  response handling, template rendering, form processing, and JSON 
+  responses. This package is designed for educational purposes and 
+  as a foundational starting point for Django projects.
+keywords:
+  - Django
+  - Web Development
+  - Forms
+  - JSON
+  - Templates
+  - Python
+  - Software
 authors:
   - given-names: Lars Bastiaan
     family-names: van Vianen
     email: lars@scape.agency
     affiliation: Scape Agency
-    orcid: 'https://orcid.org/0000-0002-8790-8630'
+    orcid: "https://orcid.org/0000-0002-8790-8630"
+preferred-citation:
+  type: software
+  authors:
+    - given-names: Lars Bastiaan
+      family-names: van Vianen
+      orcid: "https://orcid.org/0000-0002-8790-8630"
+  title: "Swing Hello"
+  version: 0.1.0
+  url: "https://github.com/scape-agency/swing-hello"
+  date-released: 2024-07-01
+  license: BSD-3-Clause
