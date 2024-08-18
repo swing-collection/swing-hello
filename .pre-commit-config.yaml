@@ -1,0 +1,62 @@
+# .pre-commit-config.yaml
+
+# Specify the version of pre-commit
+# You can install pre-commit using pip: pip install pre-commit
+# Activate it in a repository with: pre-commit install
+
+# Define the list of hooks to run
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0  # Use the latest stable version
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+
+  - repo: https://github.com/psf/black
+    rev: 23.1.0  # Use the latest stable version of black
+    hooks:
+      - id: black
+        language_version: python3.10
+
+  - repo: https://github.com/pycqa/flake8
+    rev: v5.0.4  # Use the latest stable version
+    hooks:
+      - id: flake8
+        additional_dependencies: [flake8-django]
+        args: ["--max-line-length=88"]
+        language_version: python3.10
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.991  # Use the latest stable version of mypy
+    hooks:
+      - id: mypy
+        args: ["--ignore-missing-imports"]
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.10.1  # Use the latest stable version of isort
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+        language_version: python3.10
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0  # Use the latest stable version
+    hooks:
+      - id: check-merge-conflict
+
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.9.0  # Use the latest stable version
+    hooks:
+      - id: python-check-blanket-noqa
+      - id: python-no-eval
+
+  - repo: https://github.com/pre-commit/mirrors-bandit
+    rev: v1.7.2  # Use the latest stable version of Bandit
+    hooks:
+      - id: bandit
+        args: ["--severity-level", "medium", "--skip", "B101"]
+        language_version: python3.10
+
+# End of .pre-commit-config.yaml
