@@ -5,9 +5,13 @@
 <h3 align='center'>Django Swing Collection</h3>
 <br/>
 
+---
+
 ## Introduction
 
-**Swing Hello** is a simple Django application that provides basic views to demonstrate response handling and template rendering. This package includes both function-based and class-based views for returning plain text and rendering templates with context.
+**Swing Hello** is a simple reusable Django application that provides basic views to demonstrate response handling and template rendering. It is designed to provide simple, yet effective functionality for greeting users through various forms and views. This package includes both function-based and class-based views for returning plain text and rendering templates with context. It showcases the best practices in Django app development, including internationalization, testing, and modular design.
+
+---
 
 ## Features
 
@@ -15,6 +19,8 @@
 - Class-based view returning a plain text "Hello!" response.
 - Function-based view rendering a template with a context.
 - Class-based view rendering a template with a context.
+
+---
 
 ## Installation
 
@@ -48,6 +54,8 @@
    ]
    ```
 
+---
+
 ## Usage
 
 ### Function-Based Views
@@ -67,6 +75,8 @@ The package provides the following URL patterns:
 - `/hello/` - Renders the template with context using `HelloTemplateView`.
 - `/hello/response` - Returns a plain text "Hello!" response using `HelloResponseView`.
 - `/hello/template` - Renders the template with context using `HelloTemplateView`.
+
+---
 
 ## Example Template
 
@@ -119,6 +129,8 @@ The package includes a simple HTML template `hello.html`:
 </html>
 ```
 
+---
+
 ## Project Structure
 
 ```
@@ -136,14 +148,18 @@ swing_hello/
     urls.py
 ```
 
-## Contributing
+---
+
+## Colophon
+
+Made with ❤️ by **[Scape Agency](https://www.scape.agency)**
+
+### Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
-## License
+### License
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+This project is licensed under the BSD-3-Clause license. See the [LICENSE](LICENSE) file for details.
 
-## Contact
-
-Swing Hello is developed by Scape Agency. For any inquiries or support, please contact us at [info@scapeagency.com].
+---
