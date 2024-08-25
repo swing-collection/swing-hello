@@ -2,11 +2,11 @@ cff-version: 1.2.0
 title: "Swing Hello"
 version: 0.1.0
 date-released: 2024-07-01
-url: "https://github.com/scape-agency/swing-hello"
+url: "https://github.com/swing-collection/swing-hello"
 message: >-
   If you use this software, please cite it using the metadata from this file.
 type: software
-repository-code: "https://github.com/scape-agency/swing-hello"
+repository-code: "https://github.com/swing-collection/swing-hello"
 license: BSD-3-Clause
 abstract: >
   Swing Hello is a Django application that provides basic views for 
@@ -35,6 +35,6 @@ preferred-citation:
       orcid: "https://orcid.org/0000-0002-8790-8630"
   title: "Swing Hello"
   version: 0.1.0
-  url: "https://github.com/scape-agency/swing-hello"
+  url: "https://github.com/swing-collection/swing-hello"
   date-released: 2024-07-01
   license: BSD-3-Clause
