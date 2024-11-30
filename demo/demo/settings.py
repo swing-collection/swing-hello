@@ -6,12 +6,21 @@
 # =============================================================================
 
 """
-Demo Settings for Swing Hello App
-=================================
+Demo Settings
+=============
 
-This is a basic settings configuration used to run the Swing Hello app 
-in isolation. It includes minimal setup for a SQLite database, templates, 
-and installed apps.
+This is a basic settings configuration used to run the app in isolation. It
+includes minimal setup for a SQLite database, templates, and installed apps.
+
+It includes:
+
+- A simple SQLite database setup.
+- Default Django apps for admin and authentication.
+- Template and static file configuration.
+- Internationalization settings.
+
+IMPORTANT: Not intended for production use. Update `SECRET_KEY`, `DEBUG`,
+and `ALLOWED_HOSTS` appropriately for deployment.
 
 """
 
@@ -21,7 +30,6 @@ and installed apps.
 # =============================================================================
 
 # Import | Standard Library
-import os
 from pathlib import Path
 
 # Import | Libraries
@@ -43,6 +51,7 @@ SECRET_KEY = "django-insecure-change-this-in-production"
 DEBUG = True
 
 # Hosts allowed to access the application
+# Define allowed hosts in production, e.g., ["example.com"]
 ALLOWED_HOSTS = []
 
 
@@ -51,14 +60,19 @@ ALLOWED_HOSTS = []
 # =============================================================================
 
 INSTALLED_APPS = [
+    # Default Django apps
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "swing_hello",
+
+    # Local apps
+    "swing_hello",  # Reusable app under development]
 ]
+
+
 # =============================================================================
 # Middleware
 # =============================================================================
@@ -72,6 +86,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
 
 # =============================================================================
 # URL Configuration
@@ -146,18 +161,19 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # =============================================================================
 
-LANGUAGE_CODE = "en-us"
-TIME_ZONE = "UTC"
-USE_I18N = True
-USE_TZ = True
+LANGUAGE_CODE = "en-us"  # Default language
+TIME_ZONE = "UTC"  # Default timezone
+USE_I18N = True  # Enable translations
+USE_TZ = True  # Use timezone-aware datetimes
+
 
 
 # =============================================================================
 # Static Files
 # =============================================================================
 
-STATIC_URL = "/static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_URL = "/static/"  # URL to serve static files
+STATICFILES_DIRS = [BASE_DIR / "static"]  # Additional static files
 
 
 # =============================================================================
