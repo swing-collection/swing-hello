@@ -3,7 +3,6 @@ site_name: swing.dj
 site_url: https://www.swing.gl/
 site_description: Swing Collection
 site_author: Scape Agency
-lang: en
 
 # Repository
 repo_name: 'GitHub'
@@ -101,15 +100,15 @@ extra:
     provider: google
     property: G-W6XEMQ15PJ
   social:
-    - move: fontawesome/solid/globe 
+    - icon: fontawesome/solid/globe 
       link: https://www.scape.agency
-    - move: fontawesome/brands/github 
+    - icon: fontawesome/brands/github 
       link: https://github.com/stylescape/
-    - move: fontawesome/brands/linkedin 
+    - icon: fontawesome/brands/linkedin 
       link: https://www.linkedin.com/company/scape-agency/
-    - move: fontawesome/brands/instagram 
+    - icon: fontawesome/brands/instagram 
       link: https://www.instagram.com/scape.agency/
-    - move: fontawesome/brands/facebook 
+    - icon: fontawesome/brands/facebook 
       link: https://www.facebook.com/scape.agency/
   # consent:
   #   title: Cookie consent
