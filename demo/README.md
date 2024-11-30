@@ -11,8 +11,9 @@ This is a demo Django project designed to test and showcase the functionality of
 Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/swing-hello-demo.git
-cd swing-hello-demo
+git clone https://github.com/swing-collection/swing-hello.git
+cd swing-hello
+cd demo
 ```
 
 ### 2. Set Up a Virtual Environment
@@ -83,5 +84,5 @@ demo/
 
 ## Features
 
- • Django Admin: Access the admin interface at /admin/.
- • Swing Hello App: Test the swing_hello reusable app at /hello/.
+- Django Admin: Access the admin interface at /admin/.
+- Swing Hello App: Test the swing_hello reusable app at /hello/.
