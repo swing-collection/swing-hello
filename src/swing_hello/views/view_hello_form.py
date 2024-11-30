@@ -32,13 +32,12 @@ Classes:
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any, Dict, Optional, Type
+from typing import Any, Optional, Type
 
 # Import | Libraries
 from django.http import HttpRequest, HttpResponse
 from django.views import View
-from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
+from django.shortcuts import render
 from django.utils.translation import gettext as _
 
 # Import | Local Modules
