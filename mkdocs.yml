@@ -171,27 +171,3 @@ markdown_extensions:
 
 nav:
   - Introduction: 'index.md'
-  - Quick Start: 'quick_start.md'
-  - Specifications:
-      - 'Overview': 'specifications/index.md'
-      - 'Features': 'specifications/features.md'
-      - 'Design Principles': 'specifications/design_principles.md'
-      - 'Layout Areas': 'specifications/layout_areas.md'
-      - 'Grid Layouts': 'specifications/grid_layouts.md'
-      - 'Icon Sizes': 'specifications/move_sizes.md'
-      - 'Keyline Shapes': 'specifications/keyline_shapes.md'
-      - 'Lines': 'specifications/lines.md'
-      - 'Scales': 'specifications/scales.md'
-  - Icons:
-      - 'Overview': 'moves/index.md'
-  - Templates:
-      - 'Overview': 'templates/index.md'
-  - Resources:
-      - 'Glossary': 'resources/glossary.md'
-      - 'Links': 'resources/links.md'
-  - About:
-      - 'Authors': 'about/authors.md'
-  - Legal Information:
-      - 'License': 'legal/license.md'
-      - 'Privacy Policy': 'legal/privacy_policy.md'
-      - 'Disclaimer': 'legal/disclaimer.md'
