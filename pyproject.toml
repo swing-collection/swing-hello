@@ -7,7 +7,7 @@
 
 [tool.poetry]
 name = "swing_hello"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Django plugin that provides basic views for response handling and template rendering."
 authors = ["Scape Agency <info@scapeagency.com>"]
 license = "MIT"
