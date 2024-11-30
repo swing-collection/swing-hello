@@ -39,9 +39,14 @@ The package provides the following URL patterns:
 from django.urls import path
 
 # Import | Local Modules
+from swing_hello.views.view_hello_response import hello_response_view
 from swing_hello.views.view_hello_response import HelloResponseView
+from swing_hello.views.view_hello_template import hello_template_view
 from swing_hello.views.view_hello_template import HelloTemplateView
 
+from .views.view_hello_json import hello_json_view, HelloJsonView
+from .views.view_hello_form import hello_form_view, HelloFormView
+# from .views.view_hello_api import HelloApiView
 
 # =============================================================================
 # URL Patterns
@@ -67,30 +72,9 @@ urlpatterns = [
         name = "hello_template"
     ),
 
-]
-
-
-
-# swing_hello/urls.py
-
-from django.urls import path
-from .views import (
-    HelloResponseView,
-    hello_response_view,
-    HelloTemplateView,
-    hello_template_view,
-)
-from .views.view_hello_json import hello_json_view, HelloJsonView
-from .views.view_hello_form import hello_form_view, HelloFormView
-from .views.view_hello_api import HelloApiView
-
-urlpatterns = [
-    path('', HelloTemplateView.as_view(), name='hello'),
-    path('response', HelloResponseView.as_view(), name='hello_response'),
-    path('template', HelloTemplateView.as_view(), name='hello_template'),
     path('json', HelloJsonView.as_view(), name='hello_json'),
     path('json_func', hello_json_view, name='hello_json_func'),
     path('form', HelloFormView.as_view(), name='hello_form'),
     path('form_func', hello_form_view, name='hello_form_func'),
-    path('api', HelloApiView.as_view(), name='hello_api'),
+    # path('api', HelloApiView.as_view(), name='hello_api'),
 ]
