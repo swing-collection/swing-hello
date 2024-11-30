@@ -8,10 +8,15 @@
 """
 WSGI config for demo project.
 
-It exposes the WSGI callable as a module-level variable named ``application``.
 
-For more information on this file, see
+This module sets up the WSGI application for the `demo` project, allowing it
+to be served by WSGI-compatible web servers.
+
+Exposes the WSGI callable as a module-level variable named `application`.
+
+For more details, visit:
 https://docs.djangoproject.com/en/stable/howto/deployment/wsgi/
+
 """
 
 
@@ -28,8 +33,12 @@ from django.core.wsgi import get_wsgi_application
 # Import | Local Modules
 
 
-# Set the default settings module for the "demo" project
+# =============================================================================
+# WSGI Application Setup
+# =============================================================================
+
+# Set the default Django settings module
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "demo.settings")
 
-# Get the WSGI application
+# Create the WSGI application callable
 application = get_wsgi_application()
