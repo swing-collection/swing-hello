@@ -45,7 +45,7 @@ from swing_hello.forms.form_hello import HelloForm
 
 
 # =============================================================================
-# Function
+# Functions
 # =============================================================================
 
 def hello_form_view(request: HttpRequest) -> HttpResponse:
