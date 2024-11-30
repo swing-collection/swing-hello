@@ -12,9 +12,9 @@ description = "A Django plugin that provides basic views for response handling a
 authors = ["Scape Agency <info@scapeagency.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/scape-agency/swing-hello"
+homepage = "https://www.swing.dj"
 repository = "https://github.com/scape-agency/swing-hello"
-documentation = "https://swing-hello.readthedocs.io"
+documentation = "https://hello.swing.dj"
 keywords = ["Django", "plugin", "views", "template", "response-handling"]
 classifiers = [
     "Development Status :: 3 - Alpha",
