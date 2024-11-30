@@ -67,7 +67,7 @@ def hello_template_view(
         "title": _("Hello!"),
         "content": "Lorem ipsum dolor sit amet",
     }
-    return render(request, "hello.html", context)
+    return render(request, "swing_hello/hello_template.html", context)
 
 
 # =============================================================================
@@ -86,7 +86,7 @@ class HelloTemplateView(TemplateView):
 
     """
 
-    template_name = "hello.html"
+    template_name = "swing_hello/hello_template.html"
 
     def get_context_data(
         self,
