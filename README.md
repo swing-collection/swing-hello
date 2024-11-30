@@ -133,19 +133,57 @@ The package includes a simple HTML template `hello.html`:
 
 ## Project Structure
 
-```
+``` bash
 swing_hello/
-    __init__.py
-    admin.py
-    apps.py
-    models.py
-    views/
-        __init__.py
-        view_hello_response.py
-        view_hello_template.py
-    templates/
-        hello.html
-    urls.py
+├── demo/                       # This directory contains a sample Django project for testing your reusable app (swing_hello).
+│   ├── manage.py               # Entry point for managing the demo project.
+│   ├── demo/
+│   │   ├── __init__.py
+│   │   ├── settings.py         # Configuration for the demo project.
+│   │   ├── urls.py             # Main URL configuration for testing.
+│   │   └── wsgi.py
+│   └── db.sqlite3
+├── src/
+│   ├── swing_hello/            # Core directory of your reusable Django app.
+│       ├── __init__.py         # Initializes the Python module.
+│       ├── __main__.py
+│       ├── apps.py             # Defines the app configuration for Django.
+│       ├── urls.py             # URLs specific to this app.
+│       ├── forms/              # Contains Django forms (e.g., form_hello.py).
+│       │   ├── __init__.py
+│       │   └── form_hello.py
+│       ├── locale/             # Holds translation files for internationalization (e.g., en, nl).
+│       │   ├── en/
+│       │   │   └── ...
+│       │   └── nl/
+│       │       └── ...
+│       ├── migrations/         # Contains migration scripts for the app.
+│       │   ├── __init__.py
+│       │   └── ...
+│       ├── static/             # Stores app-specific static files (e.g., styles.css).
+│       │   └── swing_hello/
+│       │       └── styles.css
+│       ├── templates/          # App-specific templates (e.g., hello_template.html).
+│       │   └── swing_hello/
+│       │       ├── hello_form.html
+│       │       └── hello_template.html
+│       ├── tests/              # Test cases for the app (e.g., test_hello_form.py).
+│       │   ├── __init__.py
+│       │   ├── test_hello_form.py
+│       │   ├── test_hello_json.py
+│       │   ├── test_hello_response.py
+│       │   ├── test_hello_template.py
+│       │   └── ...
+│       └── views/              # App views organized by functionality (e.g., view_hello_form.py).
+│           ├── __init__.py
+│           ├── view_hello_form.py
+│           ├── view_hello_json.py
+│           ├── view_hello_response.py
+│           ├── view_hello_template.py
+│           └── ...
+├── setup.py                    # Configuration for packaging and distributing the app.
+├── README.md                   # Documentation for the repository.
+└── LICENSE                     # Specifies the license for the project.
 ```
 
 ---
