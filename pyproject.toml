@@ -26,7 +26,11 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-
+include = [
+    "src/**",
+    "README.md",
+    "LICENSE"
+]
 
 # =============================================================================
 # Dependencies
