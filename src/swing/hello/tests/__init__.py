@@ -28,18 +28,19 @@ Modules:
 # Imports
 # =============================================================================
 
+from typing import List
+
 # Import | Local Modules
 from .test_view_hello_form import TestHelloFormView
 from .test_view_hello_json import TestHelloJsonView
 from .test_view_hello_response import TestHelloResponseView
 from .test_view_hello_template import TestHelloTemplateView
 
-
 # =============================================================================
 # Module Exports
 # =============================================================================
 
-__all__ = [
+__all__: List[str] = [
     "TestHelloFormView",
     "TestHelloJsonView",
     "TestHelloResponseView",

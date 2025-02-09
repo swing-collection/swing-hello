@@ -41,7 +41,7 @@ from django.utils.translation import gettext as _
 from django.views import View
 
 # Import | Local Modules
-from swing_hello.forms.form_hello import HelloForm
+from ..forms.form_hello import HelloForm
 
 # =============================================================================
 # Functions

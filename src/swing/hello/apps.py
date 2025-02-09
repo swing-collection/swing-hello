@@ -9,8 +9,9 @@
 Provides Swing Hello Config Class
 ================================
 
-This module defines the configuration class for the 'hello' application within
-the Django project. It specifies various attributes and settings for the app.
+This module defines the configuration class for the `swing_hello` application
+within the Django project. It specifies metadata and settings used for
+app registration.
 
 """
 
@@ -30,16 +31,16 @@ from django.utils.translation import gettext_lazy as _
 # =============================================================================
 
 
-class HelloConfig(AppConfig):
+class SwingHelloConfig(AppConfig):
     """
-    Hello Config Class
-    =================
+    Swing Hello Config Class
+    ========================
 
-    Configuration class for the 'hello' application.
+    Defines settings and metadata for the `swing_hello` application.
 
     """
 
-    name = "swing_hello"
+    name = "swing.hello"
     label = "swing_hello"
     verbose_name: str = _(message="Swing Hello")
     default_auto_field: str = "django.db.models.BigAutoField"

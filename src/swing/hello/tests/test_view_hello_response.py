@@ -17,7 +17,8 @@ and API endpoints.
 Classes:
 --------
 
-- TestHelloJsonView: Contains tests for `hello_json_view` and `HelloJsonView`.
+- TestHelloResponseView: Contains tests for `hello_response_view` and `
+  HelloResponseView`.
 
 """
 
@@ -30,12 +31,15 @@ from typing import Any
 
 # Import | Libraries
 import pytest
-from django.http import JsonResponse
+from django.http import HttpResponse
 from django.test import HttpRequest, RequestFactory
 from django.utils.translation import gettext as _
 
 # Import | Local Modules
-from swing_hello.views.view_hello_json import HelloJsonView, hello_json_view
+from swing.hello.views.view_hello_response import (
+    HelloResponseView,
+    hello_response_view,
+)
 
 # =============================================================================
 # Test Classes
@@ -43,50 +47,50 @@ from swing_hello.views.view_hello_json import HelloJsonView, hello_json_view
 
 
 @pytest.mark.django_db
-class TestHelloJsonView:
+class TestHelloResponseView:
     """
-    Hello Views Tests Class
-    =======================
+    TestHelloResponseView
+    =====================
 
-    Test suite for the `hello_json_view` and `HelloJsonView` views.
+    Test suite for the `hello_response_view` and `HelloResponseView` views.
 
     This class includes tests for GET requests to ensure that the views return
-    the correct JSON responses.
+    the correct HTTP responses with the expected content.
     """
 
     def setup_method(self) -> None:
         """
         Setup the RequestFactory for use in test methods.
 
-        The RequestFactory is used to simulate GET requests in the test
-        methods.
+        The RequestFactory is used to simulate GET requests in the test methods.
         """
         self.factory: RequestFactory = RequestFactory()
 
-    def test_hello_json_view_function(self) -> None:
+    def test_hello_response_view_function(self) -> None:
         """
-        Test GET request handling for `hello_json_view`.
+        Test GET request handling for `hello_response_view`.
 
-        Ensures that the function-based view returns the correct JSON
-        response.
+        Ensures that the function-based view returns the correct HTTP response
+        with the content "Hello!".
         """
-        request: HttpRequest = self.factory.get("/hello/json_func")
-        response: JsonResponse = hello_json_view(request)
+        request: HttpRequest = self.factory.get("/hello/response")
+        response: HttpResponse = hello_response_view(request)
 
         assert response.status_code == 200
-        assert response.json() == {"message": _("Hello, World!")}
+        assert response.content.decode() == "Hello!"
 
-    def test_hello_json_view_class(self) -> None:
+    def test_hello_response_view_class(self) -> None:
         """
-        Test GET request handling for `HelloJsonView`.
+        Test GET request handling for `HelloResponseView`.
 
-        Ensures that the class-based view returns the correct JSON response.
+        Ensures that the class-based view returns the correct HTTP response
+        with the content "Hello!".
         """
-        request: HttpRequest = self.factory.get("/hello/json")
-        response: JsonResponse = HelloJsonView.as_view()(request)
+        request: HttpRequest = self.factory.get("/hello/response")
+        response: HttpResponse = HelloResponseView.as_view()(request)
 
         assert response.status_code == 200
-        assert response.json() == {"message": _("Hello, World!")}
+        assert response.content.decode() == _("Hello!")
 
 
 # =============================================================================
@@ -94,5 +98,5 @@ class TestHelloJsonView:
 # =============================================================================
 
 __all__ = [
-    "TestHelloJsonView",
+    "TestHelloResponseView",
 ]

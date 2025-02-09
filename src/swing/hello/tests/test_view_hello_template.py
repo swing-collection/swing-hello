@@ -9,16 +9,18 @@
 Hello Views Tests Module
 ========================
 
-This module contains the test suite for the various views in the Swing Hello
-application. It includes tests for function-based and class-based views that
-handle HTTP responses, template rendering, JSON responses, form processing,
-and API endpoints.
+This module contains test cases for the views in the `swing_hello` application.
+It includes function-based and class-based view tests for:
 
-Classes:
---------
+- HTTP response rendering
+- Template rendering
+- JSON responses
+- Form processing
 
-- TestHelloTemplateView: Contains tests for `hello_template_view` and
-`HelloTemplateView`.
+Test Classes:
+-------------
+- `TestHelloTemplateView`: Tests `hello_template_view` (FBV) and
+    `HelloTemplateView` (CBV).
 
 """
 
@@ -36,10 +38,7 @@ from django.test import HttpRequest, RequestFactory
 from django.utils.translation import gettext as _
 
 # Import | Local Modules
-from swing_hello.views.view_hello_template import (
-    HelloTemplateView,
-    hello_template_view,
-)
+from ..views.view_hello_template import HelloTemplateView, hello_template_view
 
 # =============================================================================
 # Test Classes
@@ -88,8 +87,8 @@ class TestHelloTemplateView:
         - The response content should include "Hello!" and "Lorem ipsum dolor
           sit amet".
         """
-        request: HttpRequest = self.factory.get("/hello/template")
-        response: HttpResponse = hello_template_view(request)
+        request: HttpRequest = self.factory.get(path="/hello/template")
+        response: HttpResponse = hello_template_view(request=request)
 
         assert response.status_code == 200
         assert _("Hello!") in response.content.decode()
