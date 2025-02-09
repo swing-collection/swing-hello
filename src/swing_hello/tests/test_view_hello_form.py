@@ -9,8 +9,8 @@
 Hello Form Tests Module
 =======================
 
-This module contains the test suite for the form-related views in the Swing Hello 
-application. It includes tests for both the function-based and class-based views 
+This module contains the test suite for the form-related views in the Swing Hello
+application. It includes tests for both the function-based and class-based views
 responsible for handling form submissions and rendering form pages.
 
 Classes:
@@ -30,20 +30,17 @@ from typing import Any
 
 # Import | Libraries
 import pytest
-from django.test import RequestFactory, HttpRequest
 from django.http import HttpResponse
+from django.test import HttpRequest, RequestFactory
 from django.utils.translation import gettext as _
 
 # Import | Local Modules
-from swing_hello.views.view_hello_form import (
-    hello_form_view,
-    HelloFormView
-)
-
+from swing_hello.views.view_hello_form import HelloFormView, hello_form_view
 
 # =============================================================================
 # Test Classes
 # =============================================================================
+
 
 @pytest.mark.django_db
 class TestHelloFormView:
@@ -53,7 +50,7 @@ class TestHelloFormView:
 
     Test suite for the `hello_form_view` and `HelloFormView` views.
 
-    This class includes tests for GET and POST requests to ensure that the 
+    This class includes tests for GET and POST requests to ensure that the
     views behave as expected when rendering forms and processing form
     submissions.
 
@@ -84,17 +81,17 @@ class TestHelloFormView:
         """
         Test POST request handling for `hello_form_view`.
 
-        Ensures that the view correctly processes the form submission and returns 
+        Ensures that the view correctly processes the form submission and returns
         a greeting message including the submitted name.
         """
         request: HttpRequest = self.factory.post(
             "/hello/form_func",
             {"name": "Alice"},
         )
-        response: HttpResponse = hello_form_view(request)
+        response: HttpResponse = hello_form_view(request=request)
 
         assert response.status_code == 200
-        assert _("Hello, Alice!") in response.content.decode()
+        assert _(message="Hello, Alice!") in response.content.decode()
 
     def test_hello_form_view_class_get(self) -> None:
         """
