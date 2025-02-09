@@ -3,8 +3,8 @@
 # =============================================================================
 # Script: setup_dev_env.sh
 # =============================================================================
-# This script sets up the development environment by installing required Python 
-# packages, setting up virtual environments, and ensuring all necessary tools 
+# This script sets up the development environment by installing required Python
+# packages, setting up virtual environments, and ensuring all necessary tools
 # are available.
 # =============================================================================
 
