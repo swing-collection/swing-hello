@@ -69,7 +69,7 @@ INSTALLED_APPS: List[str] = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Local apps
-    "swing_hello",  # Reusable app under development]
+    "swing.hello",  # Reusable app under development]
 ]
 
 
