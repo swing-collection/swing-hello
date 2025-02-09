@@ -36,17 +36,16 @@ and JSON responses in Django.
 # =============================================================================
 
 # Import | Local Modules
-from .view_hello_form import hello_form_view, HelloFormView
-from .view_hello_json import hello_json_view, HelloJsonView
-from .view_hello_response import hello_response_view, HelloResponseView
-from .view_hello_template import hello_template_view, HelloTemplateView
-
+from .view_hello_form import HelloFormView, hello_form_view
+from .view_hello_json import HelloJsonView, hello_json_view
+from .view_hello_response import HelloResponseView, hello_response_view
+from .view_hello_template import HelloTemplateView, hello_template_view
 
 # =============================================================================
 # Module Exports
 # =============================================================================
 
-__all__ = [
+__all__: list[str] = [
     "hello_response_view",
     "HelloResponseView",
     "hello_template_view",
