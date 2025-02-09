@@ -3,7 +3,7 @@
 # =============================================================================
 # Script: run_tests.sh
 # =============================================================================
-# This script runs the test suite using pytest and generates a coverage report 
+# This script runs the test suite using pytest and generates a coverage report
 # if specified.
 # =============================================================================
 
