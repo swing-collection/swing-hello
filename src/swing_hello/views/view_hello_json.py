@@ -10,16 +10,16 @@ Hello JSON Views Module
 =======================
 
 This module defines views that return a JSON response with a greeting message.
-It includes both function-based and class-based views. The views are equipped 
-with internationalization support to allow translation of messages into 
+It includes both function-based and class-based views. The views are equipped
+with internationalization support to allow translation of messages into
 different languages.
 
 Functions:
-    - hello_json_view: A function-based view that returns a JSON response 
+    - hello_json_view: A function-based view that returns a JSON response
       with a greeting message.
 
 Classes:
-    - HelloJsonView: A class-based view that returns a JSON response 
+    - HelloJsonView: A class-based view that returns a JSON response
       with a greeting message.
 """
 
@@ -29,17 +29,17 @@ Classes:
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 # Import | Libraries
-from django.http import JsonResponse, HttpRequest, HttpResponse
-from django.views import View
+from django.http import HttpRequest, JsonResponse
 from django.utils.translation import gettext as _
-
+from django.views import View
 
 # =============================================================================
 # Functions
 # =============================================================================
+
 
 def hello_json_view(request: HttpRequest) -> JsonResponse:
     """
@@ -54,13 +54,14 @@ def hello_json_view(request: HttpRequest) -> JsonResponse:
     Returns:
         JsonResponse: A JSON response containing the greeting message.
     """
-    data: Dict[str, str] = {"message": _("Hello, World!")}
-    return JsonResponse(data)
+    data: Dict[str, str] = {"message": _(message="Hello, World!")}
+    return JsonResponse(data=data)
 
 
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class HelloJsonView(View):
     """
@@ -89,15 +90,15 @@ class HelloJsonView(View):
         Returns:
             JsonResponse: A JSON response containing the greeting message.
         """
-        data: Dict[str, str] = {"message": _("Hello, World!")}
-        return JsonResponse(data)
+        data: Dict[str, str] = {"message": _(message="Hello, World!")}
+        return JsonResponse(data=data)
 
 
 # =============================================================================
 # Module Exports
 # =============================================================================
 
-__all__ = [
+__all__: List[str] = [
     "hello_json_view",
     "HelloJsonView",
 ]
