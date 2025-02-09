@@ -11,8 +11,8 @@ URL Configuration
 
 Defines URL patterns for the Django application.
 
-This module maps URLs to views, connecting web requests to the appropriate view 
-logic.
+This module maps URLs to views, connecting web requests to the appropriate
+view logic.
 
 The package provides the following URL patterns:
 
@@ -37,44 +37,66 @@ The package provides the following URL patterns:
 
 # Import | Libraries
 from django.urls import path
+from django.urls.resolvers import URLPattern
 
 # Import | Local Modules
-from swing_hello.views.view_hello_response import hello_response_view
-from swing_hello.views.view_hello_response import HelloResponseView
-from swing_hello.views.view_hello_template import hello_template_view
-from swing_hello.views.view_hello_template import HelloTemplateView
+from swing_hello.views.view_hello_response import (
+    HelloResponseView,
+    hello_response_view,
+)
+from swing_hello.views.view_hello_template import (
+    HelloTemplateView,
+    hello_template_view,
+)
 
-from .views.view_hello_json import hello_json_view, HelloJsonView
-from .views.view_hello_form import hello_form_view, HelloFormView
+from .views.view_hello_form import HelloFormView, hello_form_view
+from .views.view_hello_json import HelloJsonView, hello_json_view
+
 # from .views.view_hello_api import HelloApiView
 
 # =============================================================================
 # URL Patterns
 # =============================================================================
 
-urlpatterns = [
-
+urlpatterns: list[URLPattern] = [
     path(
-        "",
-        HelloTemplateView.as_view(),
-        name = "hello"
+        route="",
+        view=HelloTemplateView.as_view(),
+        name="hello",
     ),
-
     path(
-        "response",
-        HelloResponseView.as_view(),
-        name = "hello_response"
+        route="response",
+        view=HelloResponseView.as_view(),
+        name="hello_response",
     ),
-
     path(
-        "template",
-        HelloTemplateView.as_view(),
-        name = "hello_template"
+        route="template",
+        view=HelloTemplateView.as_view(),
+        name="hello_template",
     ),
-
-    path('json', HelloJsonView.as_view(), name='hello_json'),
-    path('json_func', hello_json_view, name='hello_json_func'),
-    path('form', HelloFormView.as_view(), name='hello_form'),
-    path('form_func', hello_form_view, name='hello_form_func'),
-    # path('api', HelloApiView.as_view(), name='hello_api'),
+    path(
+        route="json",
+        view=HelloJsonView.as_view(),
+        name="hello_json",
+    ),
+    path(
+        route="json_func",
+        view=hello_json_view,
+        name="hello_json_func",
+    ),
+    path(
+        route="form",
+        view=HelloFormView.as_view(),
+        name="hello_form",
+    ),
+    path(
+        route="form_func",
+        view=hello_form_view,
+        name="hello_form_func",
+    ),
+    # path(
+    #     route="api",
+    #     view=HelloApiView.as_view(),
+    #     name="hello_api",
+    # ),
 ]
