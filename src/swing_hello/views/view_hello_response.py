@@ -11,8 +11,8 @@ Hello Response Views Module
 
 Provides hello_response_view function and HelloResponseView class.
 
-This module defines a simple function-based view and a class-based view to 
-return a "Hello!" response. These views can be used to demonstrate basic 
+This module defines a simple function-based view and a class-based view to
+return a "Hello!" response. These views can be used to demonstrate basic
 Django view functionality.
 
 Functions:
@@ -30,12 +30,12 @@ Classes:
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 # Import | Libraries
 from django.http import HttpRequest, HttpResponse
-from django.views import View
 from django.utils.translation import gettext as _
+from django.views import View
 
 # Import | Local Modules
 
@@ -43,6 +43,7 @@ from django.utils.translation import gettext as _
 # =============================================================================
 # Functions
 # =============================================================================
+
 
 def hello_response_view(
     request: HttpRequest,
@@ -61,17 +62,18 @@ def hello_response_view(
 
     """
 
-    context: str = _("Hello!")
+    context: str = _(message="Hello!")
 
     return HttpResponse(
-        context,
-        content_type = "text/plain"
+        content=context,
+        content_type="text/plain",
     )
 
 
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class HelloResponseView(View):
     """
@@ -105,11 +107,11 @@ class HelloResponseView(View):
             - HttpResponse: A response object with "Hello!" text.
         """
 
-        context: str = _("Hello!")
+        context: str = _(message="Hello!")
 
         return HttpResponse(
-            context,
-            content_type = "text/plain"
+            content=context,
+            content_type="text/plain",
         )
 
 
@@ -117,7 +119,7 @@ class HelloResponseView(View):
 # Module Exports
 # =============================================================================
 
-__all__ = [
+__all__: List[str] = [
     "hello_response_view",
     "HelloResponseView",
 ]
