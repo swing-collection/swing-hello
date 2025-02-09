@@ -27,7 +27,7 @@ Classes:
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any
+from typing import List
 
 # Import | Libraries
 from django import forms
@@ -41,6 +41,7 @@ from django.utils.translation import gettext_lazy as _
 # =============================================================================
 # Forms
 # =============================================================================
+
 
 class HelloForm(forms.Form):
     """
@@ -64,11 +65,15 @@ class HelloForm(forms.Form):
     """
 
     name: forms.CharField = forms.CharField(
-        label = _("Your Name"),
-        max_length = 100,
-        required = True,
-        widget = forms.TextInput(attrs={"placeholder": _("Enter your name")}),
-        help_text = _("Please enter your full name."),
+        label=_(message="Your Name"),
+        max_length=100,
+        required=True,
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": _(message="Enter your name"),
+            },
+        ),
+        help_text=_(message="Please enter your full name."),
     )
 
     def clean_name(self) -> str:
@@ -89,7 +94,7 @@ class HelloForm(forms.Form):
         name: str = self.cleaned_data.get("name", "")
         if not all(char.isalpha() or char.isspace() for char in name):
             raise ValidationError(
-                "Name should contain only letters and spaces."
+                message="Name should contain only letters and spaces."
             )
         return name
 
@@ -113,6 +118,6 @@ class HelloForm(forms.Form):
 # Module Exports
 # =============================================================================
 
-__all__ = [
+__all__: List[str] = [
     "HelloForm",
 ]
