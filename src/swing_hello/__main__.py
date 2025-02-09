@@ -8,15 +8,16 @@
 # Import | Standard Library
 import sys
 
-# Import | Libraries
-
 # Import | Local Modules
 from swing_hello.commands import StatusCommand
+
+# Import | Libraries
 
 
 # =============================================================================
 # Functions
 # =============================================================================
+
 
 def main():
     return StatusCommand().run()
@@ -27,11 +28,11 @@ def main():
 # =============================================================================
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(status=main())
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__ = ["main"]
+__all__: list[str] = ["main"]
