@@ -3,7 +3,7 @@
 # =============================================================================
 # Script: clean_repo.sh
 # =============================================================================
-# This script cleans up the repository by removing Python cache files, build 
+# This script cleans up the repository by removing Python cache files, build
 # artifacts, and other unnecessary files.
 # =============================================================================
 
