@@ -9,8 +9,8 @@
 Hello Forms Module
 ==================
 
-This module serves as the central point for importing and exporting all forms 
-used within the Swing Hello application. Currently, it includes the HelloForm 
+This module serves as the central point for importing and exporting all forms
+used within the Swing Hello application. Currently, it includes the HelloForm
 class, which is used to collect and validate a user's name.
 
 Classes:
@@ -27,11 +27,10 @@ Classes:
 # Import | Local Modules
 from .form_hello import HelloForm
 
-
 # =============================================================================
 # Module Exports
 # =============================================================================
 
-__all__ = [
+__all__: list[str] = [
     "HelloForm",
 ]
