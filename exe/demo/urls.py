@@ -25,7 +25,7 @@ Defines URL patterns for the demo project. This includes:
 
 # Import | Libraries
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
 
 # Import | Local Modules
 
@@ -35,7 +35,20 @@ from django.urls import path, include
 # =============================================================================
 
 urlpatterns = [
-    path("admin/", admin.site.urls),  # Admin site URL
-    path("hello/", include("swing_hello.urls")),  # Include the URLs from the swing_hello app
-    path("", include("swing_hello.urls")),  # Include the URLs from the swing_hello app
+    path(
+        route="admin/",
+        view=admin.site.urls,
+    ),  # Admin site URL
+    path(
+        route="hello/",
+        view=include(
+            arg="swing_hello.urls",
+        ),
+    ),  # Include the URLs from the swing_hello app
+    path(
+        route="",
+        view=include(
+            arg="swing_hello.urls",
+        ),
+    ),  # Include the URLs from the swing_hello app
 ]
