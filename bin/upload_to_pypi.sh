@@ -3,8 +3,8 @@
 # =============================================================================
 # Script: build_and_upload.sh
 # =============================================================================
-# This script automates the process of building a Python package and uploading 
-# it to PyPI. It removes the old `dist` directory, installs/updates necessary 
+# This script automates the process of building a Python package and uploading
+# it to PyPI. It removes the old `dist` directory, installs/updates necessary
 # tools, creates a new build, and uploads it using Twine.
 # =============================================================================
 
