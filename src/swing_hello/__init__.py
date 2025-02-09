@@ -63,14 +63,16 @@ Metadata:
 
 __author__ = "Lars van Vianen"
 __copyright__ = "Copyright (c) 2020 Scape Agency"
-__credits__ = ["Lars van Vianen"]
+__credits__: list[str] = ["Lars van Vianen"]
 __license__ = "BSD 3-Clause License"
 __version__ = "0.1.0"
 __maintainer__ = "Lars van Vianen"
 __email__ = "lars@scape.agency"
 __status__ = "Alpha"
 __url__ = "https://github.com/scape-agency/swing-hello"
-__description__ = "A Django app to demonstrate fundamental web development concepts."
+__description__ = (
+    "A Django app to demonstrate fundamental web development concepts."
+)
 
 
 # =============================================================================
