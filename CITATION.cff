@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: "Swing Hello"
-version: 0.1.0
+version: 0.2.1
 date-released: 2024-07-01
 url: "https://github.com/swing-collection/swing-hello"
 message: >-
@@ -9,9 +9,9 @@ type: software
 repository-code: "https://github.com/swing-collection/swing-hello"
 license: BSD-3-Clause
 abstract: >
-  Swing Hello is a Django application that provides basic views for 
-  response handling, template rendering, form processing, and JSON 
-  responses. This package is designed for educational purposes and 
+  Swing Hello is a Django application that provides basic views for
+  response handling, template rendering, form processing, and JSON
+  responses. This package is designed for educational purposes and
   as a foundational starting point for Django projects.
 keywords:
   - Django
