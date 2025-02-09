@@ -11,8 +11,8 @@ Hello Template Views Module
 
 Provides hello_template_view function and HelloTemplateView class.
 
-This module defines a simple function-based view and a class-based view that 
-renders a template with a context. These views can be used to demonstrate basic 
+This module defines a simple function-based view and a class-based view that
+renders a template with a context. These views can be used to demonstrate basic
 Django view functionality with templates.
 
 Functions:
@@ -31,12 +31,12 @@ Classes:
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 # Import | Libraries
 from django.shortcuts import render
-from django.views.generic.base import TemplateView
 from django.utils.translation import gettext as _
+from django.views.generic.base import TemplateView
 
 # Import | Local Modules
 
@@ -44,6 +44,7 @@ from django.utils.translation import gettext as _
 # =============================================================================
 # Functions
 # =============================================================================
+
 
 def hello_template_view(
     request: Any,
@@ -64,15 +65,20 @@ def hello_template_view(
     """
 
     context: Dict[str, str] = {
-        "title": _("Hello!"),
+        "title": _(message="Hello!"),
         "content": "Lorem ipsum dolor sit amet",
     }
-    return render(request, "swing_hello/hello_template.html", context)
+    return render(
+        request=request,
+        template_name="swing_hello/hello_template.html",
+        context=context,
+    )
 
 
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class HelloTemplateView(TemplateView):
     """
@@ -106,7 +112,7 @@ class HelloTemplateView(TemplateView):
 
         context: Dict[str, Any] = super().get_context_data(**kwargs)
 
-        context["title"] = _("Hello!")
+        context["title"] = _(message="Hello!")
         context["content"] = "Lorem ipsum dolor sit amet"
 
         return context
@@ -116,7 +122,7 @@ class HelloTemplateView(TemplateView):
 # Module Exports
 # =============================================================================
 
-__all__ = [
+__all__: List[str] = [
     "hello_template_view",
     "HelloTemplateView",
 ]
