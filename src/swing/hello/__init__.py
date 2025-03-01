@@ -79,4 +79,4 @@ __description__ = (
 # App Configuration
 # =============================================================================
 
-default_app_config = "swing.hello.apps.HelloConfig"
+default_app_config = "swing.hello.apps.SwingHelloConfig"
