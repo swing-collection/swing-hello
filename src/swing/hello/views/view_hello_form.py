@@ -67,7 +67,7 @@ def hello_form_view(request: HttpRequest) -> HttpResponse:
         form = HelloForm(data=request.POST)
         if form.is_valid():
             name = form.cleaned_data["name"]
-            message: str = _(message="Hello, {name}!").format(name=name)
+            message: str = _("Hello, {name}!").format(name=name)
             return render(
                 request=request,
                 template_name="hello_form.html",
@@ -210,7 +210,7 @@ class HelloFormView(FormHandlerMixin, View):
             HttpResponse: The rendered HTML page with the greeting message.
         """
         name = form.cleaned_data["name"]
-        message: str = _(message="Hello, {name}!").format(name=name)
+        message: str = _("Hello, {name}!").format(name=name)
         return render(
             request=self.request,
             template_name=self.template_name,

@@ -64,15 +64,15 @@ class HelloForm(forms.Form):
     """
 
     name: forms.CharField = forms.CharField(
-        label=_(message="Your Name"),
+        label=_("Your Name"),
         max_length=100,
         required=True,
         widget=forms.TextInput(
             attrs={
-                "placeholder": _(message="Enter your name"),
+                "placeholder": _("Enter your name"),
             },
         ),
-        help_text=_(message="Please enter your full name."),
+        help_text=_("Please enter your full name."),
     )
 
     def clean_name(self) -> str:

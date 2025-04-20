@@ -54,7 +54,7 @@ def hello_json_view(request: HttpRequest) -> JsonResponse:
     Returns:
         JsonResponse: A JSON response containing the greeting message.
     """
-    data: Dict[str, str] = {"message": _(message="Hello, World!")}
+    data: Dict[str, str] = {"message": _("Hello, World!")}
     return JsonResponse(data=data)
 
 
@@ -90,7 +90,7 @@ class HelloJsonView(View):
         Returns:
             JsonResponse: A JSON response containing the greeting message.
         """
-        data: Dict[str, str] = {"message": _(message="Hello, World!")}
+        data: Dict[str, str] = {"message": _("Hello, World!")}
         return JsonResponse(data=data)
 
 

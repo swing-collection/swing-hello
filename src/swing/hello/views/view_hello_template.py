@@ -65,7 +65,7 @@ def hello_template_view(
     """
 
     context: Dict[str, str] = {
-        "title": _(message="Hello!"),
+        "title": _("Hello!"),
         "content": "Lorem ipsum dolor sit amet",
     }
     return render(
@@ -112,7 +112,7 @@ class HelloTemplateView(TemplateView):
 
         context: Dict[str, Any] = super().get_context_data(**kwargs)
 
-        context["title"] = _(message="Hello!")
+        context["title"] = _("Hello!")
         context["content"] = "Lorem ipsum dolor sit amet"
 
         return context

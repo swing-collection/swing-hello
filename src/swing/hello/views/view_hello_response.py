@@ -62,7 +62,7 @@ def hello_response_view(
 
     """
 
-    context: str = _(message="Hello!")
+    context: str = _("Hello!")
 
     return HttpResponse(
         content=context,
@@ -107,7 +107,7 @@ class HelloResponseView(View):
             - HttpResponse: A response object with "Hello!" text.
         """
 
-        context: str = _(message="Hello!")
+        context: str = _("Hello!")
 
         return HttpResponse(
             content=context,

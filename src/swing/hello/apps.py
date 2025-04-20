@@ -42,5 +42,5 @@ class SwingHelloConfig(AppConfig):
 
     name = "swing.hello"
     label = "swing_hello"
-    verbose_name: str = _(message="Swing Hello")
+    verbose_name: str = _("Swing Hello")
     default_auto_field: str = "django.db.models.BigAutoField"

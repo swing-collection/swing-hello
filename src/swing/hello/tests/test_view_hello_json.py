@@ -86,7 +86,7 @@ class TestHelloJsonView:
         response: JsonResponse = HelloJsonView.as_view()(request)
 
         assert response.status_code == 200
-        assert response.json() == {"message": _(message="Hello, World!")}
+        assert response.json() == {"message": _("Hello, World!")}
 
 
 # =============================================================================

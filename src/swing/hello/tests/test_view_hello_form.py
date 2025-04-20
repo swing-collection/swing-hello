@@ -91,7 +91,7 @@ class TestHelloFormView:
         response: HttpResponse = hello_form_view(request=request)
 
         assert response.status_code == 200
-        assert _(message="Hello, Alice!") in response.content.decode()
+        assert _("Hello, Alice!") in response.content.decode()
 
     def test_hello_form_view_class_get(self) -> None:
         """
