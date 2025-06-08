@@ -1,0 +1,83 @@
+# .travis.yml
+
+# Specify the programming language
+language: python
+
+# Define the Python versions to test against
+python:
+  - "3.10"
+  - "3.11"
+  - "3.12"
+
+# Set up environment variables (if needed)
+env:
+  global:
+    - DJANGO_SETTINGS_MODULE=your_project_name.settings
+    - PYTHONPATH=.
+
+# Install system dependencies (if needed)
+addons:
+  apt:
+    packages:
+      - libpq-dev  # PostgreSQL client library (only needed if you're using PostgreSQL)
+
+# Specify the branches to build
+branches:
+  only:
+    - main
+    - develop
+
+# Cache pip dependencies to speed up build times
+cache:
+  pip: true
+
+# Install dependencies
+install:
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+  - pip install coveralls  # Optional: for coverage reporting
+
+# Before script: any additional setup before running tests
+before_script:
+  - python manage.py migrate  # Apply migrations
+  - python manage.py collectstatic --noinput  # Collect static files (if applicable)
+
+# Script to run tests and coverage
+script:
+  - pytest --cov=swing_hello  # Run tests with coverage
+
+# After success: report coverage to coveralls.io (optional)
+after_success:
+  - coveralls  # Upload coverage report to coveralls.io
+
+# Notifications (optional)
+notifications:
+  email:
+    recipients:
+      - your.email@example.com
+    on_success: never
+    on_failure: always
+
+# Define the jobs matrix to include different environments (optional)
+jobs:
+  include:
+    - stage: lint
+      python: "3.10"
+      install:
+        - pip install flake8
+      script:
+        - flake8 swing_hello  # Run linter
+
+    - stage: deploy
+      python: "3.10"
+      script: skip
+      deploy:
+        provider: pypi
+        username: "__token__"
+        password:
+          secure: $PYPI_PASSWORD  # Use Travis CI environment variables for security
+        on:
+          tags: true
+          branch: main
+
+# End of .travis.yml
