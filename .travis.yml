@@ -1,4 +1,15 @@
-# .travis.yml
+# =============================================================================
+# .travis.yml - Legacy Travis CI configuration (swing-hello only)
+# =============================================================================
+#
+# Why this repo only? swing-hello predates the move to GitHub Actions and
+# still carries this Travis configuration for historical reference. The
+# canonical CI for all swing-* repos is .github/workflows/.
+#
+# TODO: confirm whether Travis is still in use; if not, this file can be
+# removed.
+#
+# =============================================================================
 
 # Specify the programming language
 language: python

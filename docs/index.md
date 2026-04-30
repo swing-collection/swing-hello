@@ -298,5 +298,5 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 Contact
 
-Swing Hello is developed by Scape Agency. For any inquiries or support, please contact us at [info@scapeagency.com].
+Swing Hello is developed by Scape Press. For any inquiries or support, please contact us at [info@scapeagency.com].
 This documentation covers the new views, their purposes, and how to use them within the `Swing Hello` Django application. Feel free to further customize it to fit the specific details and requirements of your project.

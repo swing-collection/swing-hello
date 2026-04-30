@@ -8,12 +8,12 @@
     "package_name": "swing_hello",
     "version": "0.1.0",
     "author_name": "Lars van Vianen",
-    "author_email": "lars@scape.agency",
+    "author_email": "lars@scape.press",
     "license": "BSD-3-Clause",
     "open_source_license": "BSD-3-Clause",
-    "full_name": "Scape Agency",
-    "copyright": "Scape Agency",
-    "email": "info@scape.agency",
+    "full_name": "Scape Press",
+    "copyright": "Scape Press",
+    "email": "info@scape.press",
 
     "repo_domain": "github.com",
     "repo_username": "scape-agency",
@@ -40,5 +40,5 @@
     "create_virtual_environment": "y",
     "create_author_file": "y",
     "git_init": "y"
-    
+
 }

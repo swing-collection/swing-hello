@@ -1,1 +1,5 @@
+# Why this repo only? swing-hello is the example/demo app and was historically
+# deployed to Heroku, which uses runtime.txt to pin the Python interpreter.
+# Other swing-* repos are libraries and rely on .python-version + pyproject.toml
+# requires-python instead.
 python-3.11.9
