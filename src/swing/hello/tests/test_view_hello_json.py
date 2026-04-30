@@ -26,16 +26,18 @@ Classes:
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any, List
+from typing import Any
 
-# Import | Libraries
-import pytest
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.test import HttpRequest, RequestFactory
 from django.utils.translation import gettext as _
 
+# Import | Libraries
+import pytest
+
+# Import | Local
 # Import | Local Modules
-from ..views.view_hello_json import HelloJsonView, hello_json_view
+from ..views.view_hello_json import hello_json_view, HelloJsonView
 
 # =============================================================================
 # Test Classes
@@ -83,7 +85,7 @@ class TestHelloJsonView:
         Ensures that the class-based view returns the correct JSON response.
         """
         request: HttpRequest = self.factory.get(path="/hello/json")
-        response: JsonResponse = HelloJsonView.as_view()(request)
+        response: HttpResponse = HelloJsonView.as_view()(request)
 
         assert response.status_code == 200
         assert response.json() == {"message": _("Hello, World!")}
@@ -93,6 +95,6 @@ class TestHelloJsonView:
 # Module Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "TestHelloJsonView",
 ]

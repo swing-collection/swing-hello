@@ -26,7 +26,7 @@ Classes:
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any, List
+from typing import Any
 
 # Import | Libraries
 import pytest
@@ -127,6 +127,6 @@ class TestHelloFormView:
 # Module Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "TestHelloFormView",
 ]
