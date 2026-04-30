@@ -9,12 +9,15 @@ Swing Hello CLI Entry Point
 ===========================
 
 This script serves as the command-line entry point for the `swing.hello`
-package. It executes the `StatusCommand` when run as a script.
+package.
 
 Usage:
-    python -m swing_hello
+    python -m swing.hello
+    python -m swing.hello status
+    python -m swing.hello version
+    python -m swing.hello check
+    python -m swing.hello greet "John" --style formal
 """
-
 
 # =============================================================================
 # Imports
@@ -22,41 +25,22 @@ Usage:
 
 # Import | Standard Library
 import sys
-from typing import List
 
 # Import | Local Modules
-from swing.hello.commands import StatusCommand
-
-# Import | Libraries
-
-
-# =============================================================================
-# Functions
-# =============================================================================
-
-
-def main() -> int:
-    """
-    Executes the StatusCommand.
-
-    Returns:
-        int: The exit code of the command execution.
-    """
-    return StatusCommand().run()
-
+from swing.hello.commands.command_status import main as cli_main
 
 # =============================================================================
 # Main
 # =============================================================================
 
 if __name__ == "__main__":
-    sys.exit(status=main())
+    sys.exit(cli_main())
 
 
 # =============================================================================
 # Exports
 # =============================================================================
 
-__all__: List[str] = [
-    "main",
+__all__: list[str] = [
+    "cli_main",
 ]

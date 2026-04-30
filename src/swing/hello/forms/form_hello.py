@@ -9,32 +9,79 @@
 Hello Form Module
 =================
 
-This module defines the HelloForm class, which is used for collecting and
-validating a user's name within the Swing Hello application.
-
-The form includes custom validation to ensure that the provided name contains
-only alphabetic characters and spaces.
+This module defines form classes for collecting and validating user input
+within the Swing Hello application.
 
 Classes:
 --------
-- HelloForm: A Django form class for collecting and validating a user's name.
-
+- HelloForm: A basic form for collecting a user's name.
+- GreetingForm: An extended form with style and language options.
 """
-
 
 # =============================================================================
 # Imports
 # =============================================================================
 
 # Import | Standard Library
-from typing import List
+from typing import Any
 
-# Import | Libraries
 from django import forms
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 # Import | Local Modules
+
+
+# =============================================================================
+# Constants
+# =============================================================================
+
+
+class GreetingStyle:
+    """Greeting style choices."""
+
+    FORMAL = "formal"
+    CASUAL = "casual"
+    ENTHUSIASTIC = "enthusiastic"
+
+    CHOICES = [
+        (FORMAL, _("Formal")),
+        (CASUAL, _("Casual")),
+        (ENTHUSIASTIC, _("Enthusiastic")),
+    ]
+
+
+class GreetingLanguage:
+    """Available language choices."""
+
+    ENGLISH = "en"
+    DUTCH = "nl"
+    GERMAN = "de"
+    FRENCH = "fr"
+    SPANISH = "es"
+    ITALIAN = "it"
+    PORTUGUESE = "pt"
+    JAPANESE = "ja"
+    CHINESE = "zh_Hans"
+    KOREAN = "ko"
+    RUSSIAN = "ru"
+    ARABIC = "ar"
+
+    CHOICES = [
+        (ENGLISH, _("English")),
+        (DUTCH, _("Dutch")),
+        (GERMAN, _("German")),
+        (FRENCH, _("French")),
+        (SPANISH, _("Spanish")),
+        (ITALIAN, _("Italian")),
+        (PORTUGUESE, _("Portuguese")),
+        (JAPANESE, _("Japanese")),
+        (CHINESE, _("Chinese")),
+        (KOREAN, _("Korean")),
+        (RUSSIAN, _("Russian")),
+        (ARABIC, _("Arabic")),
+    ]
 
 
 # =============================================================================
@@ -57,10 +104,7 @@ class HelloForm(forms.Form):
     --------
     - clean_name() -> str: Custom validation method to ensure the name
       contains only alphabetic characters and spaces.
-    - save() -> str: Placeholder method for saving form data. Can be customized
-      for additional processing, such as saving to a database or sending an
-      email.
-
+    - save() -> str: Placeholder method for saving form data.
     """
 
     name: forms.CharField = forms.CharField(
@@ -70,6 +114,8 @@ class HelloForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "placeholder": _("Enter your name"),
+                "class": "form-input",
+                "autocomplete": "name",
             },
         ),
         help_text=_("Please enter your full name."),
@@ -87,36 +133,154 @@ class HelloForm(forms.Form):
 
         Raises:
         -------
-        - ValidationError: If the name contains non-alphabetic characters or
-          symbols.
+        - ValidationError: If the name contains non-alphabetic characters.
         """
         name: str = self.cleaned_data.get("name", "")
+        if not name.strip():
+            raise ValidationError(
+                message=_("Name cannot be empty or only whitespace.")
+            )
         if not all(char.isalpha() or char.isspace() for char in name):
             raise ValidationError(
-                message="Name should contain only letters and spaces."
+                message=_("Name should contain only letters and spaces.")
             )
-        return name
+        return name.strip()
 
     def save(self) -> str:
         """
         Placeholder for saving form data.
 
-        This method can be customized to handle form submissions, such as
-        saving the name to a database or sending an email.
-
         Returns:
         --------
         - str: The cleaned name from the form.
         """
+        return self.cleaned_data.get("name", "")
+
+
+class GreetingForm(forms.Form):
+    """
+    Greeting Form Class
+    ===================
+
+    An extended form for creating greetings with style and language options.
+
+    Fields:
+    -------
+    - name (str): The user's name.
+    - style (str): The greeting style (formal, casual, enthusiastic).
+    - language (str): The language for the greeting.
+
+    Methods:
+    --------
+    - clean_name() -> str: Validates the name field.
+    - get_greeting_message() -> str: Generates the greeting message.
+    - save() -> dict: Returns the form data as a dictionary.
+    """
+
+    name = forms.CharField(
+        label=_("Your Name"),
+        max_length=100,
+        required=True,
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": _("Enter your name"),
+                "class": "form-input",
+                "autocomplete": "name",
+            },
+        ),
+        help_text=_("Please enter your full name."),
+    )
+
+    style = forms.ChoiceField(
+        label=_("Greeting Style"),
+        choices=GreetingStyle.CHOICES,
+        initial=GreetingStyle.CASUAL,
+        required=False,
+        widget=forms.Select(
+            attrs={
+                "class": "form-select",
+            },
+        ),
+        help_text=_("Choose how you'd like to be greeted."),
+    )
+
+    language = forms.ChoiceField(
+        label=_("Language"),
+        choices=GreetingLanguage.CHOICES,
+        initial=GreetingLanguage.ENGLISH,
+        required=False,
+        widget=forms.Select(
+            attrs={
+                "class": "form-select",
+            },
+        ),
+        help_text=_("Choose the language for your greeting."),
+    )
+
+    def clean_name(self) -> str:
+        """Validate the name field."""
         name: str = self.cleaned_data.get("name", "")
-        # Placeholder for additional save logic
-        return name
+        if not name.strip():
+            raise ValidationError(
+                message=_("Name cannot be empty or only whitespace.")
+            )
+        if not all(char.isalpha() or char.isspace() for char in name):
+            raise ValidationError(
+                message=_("Name should contain only letters and spaces.")
+            )
+        return name.strip()
+
+    def get_greeting_message(self) -> str:
+        """
+        Generate the greeting message based on form data.
+
+        Returns:
+        --------
+        - str: The formatted greeting message.
+        """
+        from django.utils.translation import gettext as _
+
+        name = self.cleaned_data.get("name", "")
+        style = self.cleaned_data.get("style", GreetingStyle.CASUAL)
+
+        messages = {
+            GreetingStyle.FORMAL: _(
+                "Good day, {name}. It is a pleasure to meet you."
+            ),
+            GreetingStyle.CASUAL: _("Hello, {name}!"),
+            GreetingStyle.ENTHUSIASTIC: _(
+                "Hey {name}! So excited to see you!"
+            ),
+        }
+
+        template = messages.get(style, messages[GreetingStyle.CASUAL])
+        return template.format(name=name)
+
+    def save(self) -> dict[str, Any]:
+        """
+        Return form data as a dictionary.
+
+        Returns:
+        --------
+        - dict: Form data including name, style, language, and message.
+        """
+        return {
+            "name": self.cleaned_data.get("name", ""),
+            "style": self.cleaned_data.get("style", GreetingStyle.CASUAL),
+            "language": self.cleaned_data.get(
+                "language", GreetingLanguage.ENGLISH
+            ),
+            "message": self.get_greeting_message(),
+        }
 
 
 # =============================================================================
 # Module Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "HelloForm",
+    "GreetingForm",
+    "GreetingStyle",
+    "GreetingLanguage",
 ]

@@ -30,7 +30,7 @@ Classes:
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any, Dict, List
+from typing import Any
 
 # Import | Libraries
 from django.http import HttpRequest, HttpResponse
@@ -93,7 +93,7 @@ class HelloResponseView(View):
         self,
         request: HttpRequest,
         *args: Any,
-        **kwargs: Dict[str, Any],
+        **kwargs: dict[str, Any],
     ) -> HttpResponse:
         """
         Handles GET requests and returns a plain text "Hello!" response.
@@ -101,7 +101,7 @@ class HelloResponseView(View):
         Parameters:
             - request (HttpRequest): The HTTP request object.
             - *args (Any): Variable length argument list.
-            - **kwargs (Dict[str, Any]): Arbitrary keyword arguments.
+            - **kwargs (dict[str, Any]): Arbitrary keyword arguments.
 
         Returns:
             - HttpResponse: A response object with "Hello!" text.
@@ -119,7 +119,7 @@ class HelloResponseView(View):
 # Module Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "hello_response_view",
     "HelloResponseView",
 ]

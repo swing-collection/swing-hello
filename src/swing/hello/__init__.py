@@ -10,7 +10,7 @@ Swing Hello Module
 ==================
 
 This module is a core component of the Swing Hello package, developed by
-Scape Agency.  It provides essential Django functionality, including views
+Scape Press.  It provides essential Django functionality, including views
 for handling HTTP responses, template rendering, form processing, and JSON
 response generation.
 
@@ -32,11 +32,11 @@ Metadata:
 ---------
 
 - Author: Lars van Vianen
-- Copyright: Copyright (c) 2020 Scape Agency
+- Copyright: Copyright (c) 2020 Scape Press
 - License: BSD 3-Clause License
 - Version: 0.1.0
 - Maintainer: Lars van Vianen
-- Email: lars@scape.agency
+- Email: lars@scape.press
 - Status: Alpha
 - Repository: https://github.com/scape-agency/swing-hello
 
@@ -62,12 +62,12 @@ Metadata:
 # =============================================================================
 
 __author__ = "Lars van Vianen"
-__copyright__ = "Copyright (c) 2020 Scape Agency"
+__copyright__ = "Copyright (c) 2020 Scape Press"
 __credits__: list[str] = ["Lars van Vianen"]
 __license__ = "BSD 3-Clause License"
 __version__ = "0.1.0"
 __maintainer__ = "Lars van Vianen"
-__email__ = "lars@scape.agency"
+__email__ = "lars@scape.press"
 __status__ = "Alpha"
 __url__ = "https://github.com/scape-agency/swing-hello"
 __description__ = (

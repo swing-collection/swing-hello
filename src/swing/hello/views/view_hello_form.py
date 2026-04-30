@@ -26,20 +26,19 @@ Classes:
 
 """
 
-
 # =============================================================================
 # Imports
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any, List, Optional, Type
+from typing import Any
 
-# Import | Libraries
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.utils.translation import gettext as _
 from django.views import View
 
+# Import | Local
 # Import | Local Modules
 from ..forms.form_hello import HelloForm
 
@@ -70,7 +69,7 @@ def hello_form_view(request: HttpRequest) -> HttpResponse:
             message: str = _("Hello, {name}!").format(name=name)
             return render(
                 request=request,
-                template_name="hello_form.html",
+                template_name="swing_hello/hello_form.html",
                 context={
                     "form": form,
                     "message": message,
@@ -81,7 +80,7 @@ def hello_form_view(request: HttpRequest) -> HttpResponse:
 
     return render(
         request=request,
-        template_name="hello_form.html",
+        template_name="swing_hello/hello_form.html",
         context={"form": form},
     )
 
@@ -103,13 +102,24 @@ class FormHandlerMixin:
     Attributes:
         form_class (Type): The form class to be used in the view.
         template_name (str): The template name for rendering the form.
-        success_url (Optional[str]): The URL to redirect to after successful
+        success_url (str | None): The URL to redirect to after successful
             form submission.
     """
 
-    form_class: Optional[Type[HelloForm]] = None
-    template_name: Optional[str] = None
-    success_url: Optional[str] = None
+    form_class: type[HelloForm]
+    template_name: str
+    success_url: str | None = None
+    request: HttpRequest  # Set by dispatch()
+
+    def dispatch(
+        self,
+        request: HttpRequest,
+        *args: Any,
+        **kwargs: Any,
+    ) -> HttpResponse:
+        """Store request and dispatch to appropriate handler."""
+        self.request = request
+        return super().dispatch(request, *args, **kwargs)  # type: ignore[misc]
 
     def get(
         self,
@@ -173,7 +183,7 @@ class FormHandlerMixin:
             HttpResponse: The rendered HTML page with a success message,
                 or a redirect response.
         """
-        pass
+        raise NotImplementedError("Subclasses must implement form_valid()")
 
 
 class HelloFormView(FormHandlerMixin, View):
@@ -189,12 +199,12 @@ class HelloFormView(FormHandlerMixin, View):
         View: Django's base view class.
 
     Attributes:
-        form_class (Type[HelloForm]): The form class to be used in the view.
+        form_class (type[HelloForm]): The form class to be used in the view.
         template_name (str): The template name for rendering the form.
     """
 
-    form_class: Type[HelloForm] = HelloForm
-    template_name: str = "hello_form.html"
+    form_class: type[HelloForm] = HelloForm
+    template_name: str = "swing_hello/hello_form.html"
 
     def form_valid(
         self,
@@ -222,7 +232,7 @@ class HelloFormView(FormHandlerMixin, View):
 # Module Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "hello_form_view",
     "FormHandlerMixin",
     "HelloFormView",

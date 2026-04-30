@@ -31,7 +31,7 @@ Classes:
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any, Dict, List
+from typing import Any
 
 # Import | Libraries
 from django.shortcuts import render
@@ -64,7 +64,7 @@ def hello_template_view(
 
     """
 
-    context: Dict[str, str] = {
+    context: dict[str, str] = {
         "title": _("Hello!"),
         "content": "Lorem ipsum dolor sit amet",
     }
@@ -97,20 +97,20 @@ class HelloTemplateView(TemplateView):
     def get_context_data(
         self,
         **kwargs: Any,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Returns context for rendering the template.
 
         Parameters:
             - *args (Any): Variable length argument list.
-            - **kwargs (Dict[str, Any]): Arbitrary keyword arguments.
+            - **kwargs (dict[str, Any]): Arbitrary keyword arguments.
 
         Returns:
             - dict: A dictionary containing context data for the template.
 
         """
 
-        context: Dict[str, Any] = super().get_context_data(**kwargs)
+        context: dict[str, Any] = super().get_context_data(**kwargs)
 
         context["title"] = _("Hello!")
         context["content"] = "Lorem ipsum dolor sit amet"
@@ -122,7 +122,7 @@ class HelloTemplateView(TemplateView):
 # Module Exports
 # =============================================================================
 
-__all__: List[str] = [
+__all__: list[str] = [
     "hello_template_view",
     "HelloTemplateView",
 ]

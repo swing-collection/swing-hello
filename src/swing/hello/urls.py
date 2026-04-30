@@ -32,22 +32,27 @@ Available Endpoints:
 
 """
 
-
 # =============================================================================
 # Imports
 # =============================================================================
 
-# Import | Standard Library
-
-# Import | Libraries
 from django.urls import path
 from django.urls.resolvers import URLPattern
 
+# Import | Local
 # Import | Local Modules
-from .views.view_hello_form import HelloFormView, hello_form_view
-from .views.view_hello_json import HelloJsonView, hello_json_view
-from .views.view_hello_response import HelloResponseView, hello_response_view
-from .views.view_hello_template import HelloTemplateView, hello_template_view
+from .views.view_hello_api import (
+    greet_view,
+    greeting_detail_view,
+    greeting_list_view,
+    GreetingDetailView,
+    GreetingListView,
+    GreetView,
+)
+from .views.view_hello_form import hello_form_view, HelloFormView
+from .views.view_hello_json import hello_json_view, HelloJsonView
+from .views.view_hello_response import hello_response_view, HelloResponseView
+from .views.view_hello_template import hello_template_view, HelloTemplateView
 
 # from .views.view_hello_api import HelloApiView
 
@@ -91,9 +96,36 @@ urlpatterns: list[URLPattern] = [
         view=hello_form_view,
         name="hello_form_func",
     ),
-    # path(
-    #     route="api",
-    #     view=HelloApiView.as_view(),
-    #     name="hello_api",
-    # ),
+    # API endpoints (function-based)
+    path(
+        route="api/greetings",
+        view=greeting_list_view,
+        name="api_greeting_list",
+    ),
+    path(
+        route="api/greetings/<int:pk>",
+        view=greeting_detail_view,
+        name="api_greeting_detail",
+    ),
+    path(
+        route="api/greet",
+        view=greet_view,
+        name="api_greet",
+    ),
+    # API endpoints (class-based)
+    path(
+        route="api/v2/greetings",
+        view=GreetingListView.as_view(),
+        name="api_v2_greeting_list",
+    ),
+    path(
+        route="api/v2/greetings/<int:pk>",
+        view=GreetingDetailView.as_view(),
+        name="api_v2_greeting_detail",
+    ),
+    path(
+        route="api/v2/greet",
+        view=GreetView.as_view(),
+        name="api_v2_greet",
+    ),
 ]
