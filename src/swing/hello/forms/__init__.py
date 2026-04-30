@@ -25,12 +25,10 @@ Classes:
 
 # Import | Local
 # Import | Local Modules
-from .form_hello import (
-    GreetingForm,
-    GreetingLanguage,
-    GreetingStyle,
-    HelloForm,
-)
+from .form_greeting import GreetingForm
+from .form_hello import HelloForm
+from .greeting_language import GreetingLanguage
+from .greeting_style import GreetingStyle
 
 # =============================================================================
 # Module Exports

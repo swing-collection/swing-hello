@@ -36,7 +36,8 @@ from django.test import RequestFactory
 from django.utils.translation import gettext as _
 
 # Import | Local Modules
-from ..views.view_hello_form import HelloFormView, hello_form_view
+from ..views.view_hello_form_class import HelloFormView
+from ..views.view_hello_form_func import hello_form_view
 
 # =============================================================================
 # Test Classes

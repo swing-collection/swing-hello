@@ -39,7 +39,8 @@ from django.test import RequestFactory
 from django.utils.translation import gettext as _
 
 # Import | Local Modules
-from ..views.view_hello_template import HelloTemplateView, hello_template_view
+from ..views.view_hello_template_class import HelloTemplateView
+from ..views.view_hello_template_func import hello_template_view
 
 # =============================================================================
 # Test Classes

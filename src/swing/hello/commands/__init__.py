@@ -33,15 +33,12 @@ Usage:
 
 # Import | Local
 # Import | Local Modules
-from .command_status import (
-    CheckCommand,
-    create_parser,
-    GreetCommand,
-    main,
-    StatusCommand,
-    VERSION,
-    VersionCommand,
-)
+from .cli import create_parser, main
+from .command_check import CheckCommand
+from .command_greet import GreetCommand
+from .command_status import StatusCommand
+from .command_version import VersionCommand
+from .constants import AUTHOR, LICENSE, VERSION
 
 # =============================================================================
 # Module Exports
@@ -55,4 +52,6 @@ __all__: list[str] = [
     "create_parser",
     "main",
     "VERSION",
+    "AUTHOR",
+    "LICENSE",
 ]

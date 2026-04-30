@@ -35,14 +35,12 @@ import pytest
 # Import | Local
 # Import | Local Modules
 from ..models import Greeting, PERSISTENCE_ENABLED
-from ..views.view_hello_api import (
-    greet_view,
-    greeting_detail_view,
-    greeting_list_view,
-    GreetingDetailView,
-    GreetingListView,
-    GreetView,
-)
+from ..views.view_greet_class import GreetView
+from ..views.view_greet_func import greet_view
+from ..views.view_greeting_detail_class import GreetingDetailView
+from ..views.view_greeting_detail_func import greeting_detail_view
+from ..views.view_greeting_list_class import GreetingListView
+from ..views.view_greeting_list_func import greeting_list_view
 
 # =============================================================================
 # Test Classes

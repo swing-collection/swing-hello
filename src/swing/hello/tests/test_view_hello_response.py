@@ -37,10 +37,8 @@ from django.test import RequestFactory
 from django.utils.translation import gettext as _
 
 # Import | Local Modules
-from swing.hello.views.view_hello_response import (
-    HelloResponseView,
-    hello_response_view,
-)
+from swing.hello.views.view_hello_response_class import HelloResponseView
+from swing.hello.views.view_hello_response_func import hello_response_view
 
 # =============================================================================
 # Test Classes

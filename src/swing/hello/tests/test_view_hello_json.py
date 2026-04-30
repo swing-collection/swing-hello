@@ -38,7 +38,8 @@ import pytest
 
 # Import | Local
 # Import | Local Modules
-from ..views.view_hello_json import hello_json_view, HelloJsonView
+from ..views.view_hello_json_class import HelloJsonView
+from ..views.view_hello_json_func import hello_json_view
 
 # =============================================================================
 # Test Classes

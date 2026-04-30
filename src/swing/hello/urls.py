@@ -41,18 +41,20 @@ from django.urls.resolvers import URLPattern
 
 # Import | Local
 # Import | Local Modules
-from .views.view_hello_api import (
-    greet_view,
-    greeting_detail_view,
-    greeting_list_view,
-    GreetingDetailView,
-    GreetingListView,
-    GreetView,
-)
-from .views.view_hello_form import hello_form_view, HelloFormView
-from .views.view_hello_json import hello_json_view, HelloJsonView
-from .views.view_hello_response import hello_response_view, HelloResponseView
-from .views.view_hello_template import hello_template_view, HelloTemplateView
+from .views.view_greet_class import GreetView
+from .views.view_greet_func import greet_view
+from .views.view_greeting_detail_class import GreetingDetailView
+from .views.view_greeting_detail_func import greeting_detail_view
+from .views.view_greeting_list_class import GreetingListView
+from .views.view_greeting_list_func import greeting_list_view
+from .views.view_hello_form_class import HelloFormView
+from .views.view_hello_form_func import hello_form_view
+from .views.view_hello_json_class import HelloJsonView
+from .views.view_hello_json_func import hello_json_view
+from .views.view_hello_response_class import HelloResponseView
+from .views.view_hello_response_func import hello_response_view
+from .views.view_hello_template_class import HelloTemplateView
+from .views.view_hello_template_func import hello_template_view
 
 # from .views.view_hello_api import HelloApiView
 
