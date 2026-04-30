@@ -32,7 +32,8 @@ from typing import Any
 # Import | Libraries
 import pytest
 from django.http import HttpResponse
-from django.test import HttpRequest, RequestFactory
+from django.http import HttpRequest
+from django.test import RequestFactory
 from django.utils.translation import gettext as _
 
 # Import | Local Modules

@@ -29,7 +29,8 @@ Classes:
 from typing import Any
 
 from django.http import HttpResponse, JsonResponse
-from django.test import HttpRequest, RequestFactory
+from django.http import HttpRequest
+from django.test import RequestFactory
 from django.utils.translation import gettext as _
 
 # Import | Libraries
