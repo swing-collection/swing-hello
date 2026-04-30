@@ -21,9 +21,6 @@ Classes:
 # Imports
 # =============================================================================
 
-# Import | Standard Library
-from datetime import datetime
-
 from django.utils import timezone
 
 # Import | Libraries
@@ -131,9 +128,9 @@ class TestGreetingModel:
 
     def test_greeting_style_choices(self) -> None:
         """Test greeting style choices."""
-        assert Greeting.Style.FORMAL == "formal"
-        assert Greeting.Style.CASUAL == "casual"
-        assert Greeting.Style.ENTHUSIASTIC == "enthusiastic"
+        assert Greeting.Style.FORMAL.value == "formal"
+        assert Greeting.Style.CASUAL.value == "casual"
+        assert Greeting.Style.ENTHUSIASTIC.value == "enthusiastic"
 
     def test_invalid_style_defaults_to_casual(self) -> None:
         """Test that invalid style defaults to casual message."""

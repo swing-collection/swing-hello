@@ -14,7 +14,7 @@ from django.views.decorators.http import require_http_methods
 
 # Import | Local
 from ..models import Greeting, PERSISTENCE_ENABLED
-from .helpers_api import greeting_to_dict
+from .helper_greeting_to_dict import greeting_to_dict
 
 
 @csrf_exempt

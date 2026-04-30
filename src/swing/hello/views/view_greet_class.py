@@ -12,7 +12,8 @@ from django.utils.translation import gettext as _
 from django.views import View
 
 # Import | Local
-from .helpers_api import generate_greeting, parse_json_body
+from .helper_generate_greeting import generate_greeting
+from .helper_parse_json_body import parse_json_body
 
 
 class GreetView(View):

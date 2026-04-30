@@ -70,9 +70,7 @@ __maintainer__ = "Lars van Vianen"
 __email__ = "lars@scape.press"
 __status__ = "Alpha"
 __url__ = "https://github.com/scape-agency/swing-hello"
-__description__ = (
-    "A Django app to demonstrate fundamental web development concepts."
-)
+__description__ = "A Django app to demonstrate fundamental web development concepts."
 
 
 # =============================================================================

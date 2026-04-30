@@ -13,7 +13,9 @@ from django.views import View
 
 # Import | Local
 from ..models import Greeting, PERSISTENCE_ENABLED
-from .helpers_api import get_client_ip, greeting_to_dict, parse_json_body
+from .helper_get_client_ip import get_client_ip
+from .helper_greeting_to_dict import greeting_to_dict
+from .helper_parse_json_body import parse_json_body
 
 
 class GreetingListView(View):

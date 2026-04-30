@@ -26,10 +26,10 @@ Classes:
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any
+import json
+from typing import cast
 
-from django.http import HttpResponse, JsonResponse
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.test import RequestFactory
 from django.utils.translation import gettext as _
 
@@ -78,7 +78,7 @@ class TestHelloJsonView:
         response: JsonResponse = hello_json_view(request=request)
 
         assert response.status_code == 200
-        assert response.json() == {"message": _("Hello, World!")}
+        assert json.loads(response.content) == {"message": _("Hello, World!")}
 
     def test_hello_json_view_class(self) -> None:
         """
@@ -87,10 +87,10 @@ class TestHelloJsonView:
         Ensures that the class-based view returns the correct JSON response.
         """
         request: HttpRequest = self.factory.get(path="/hello/json")
-        response: HttpResponse = HelloJsonView.as_view()(request)
+        response = cast(HttpResponse, HelloJsonView.as_view()(request))
 
         assert response.status_code == 200
-        assert response.json() == {"message": _("Hello, World!")}
+        assert json.loads(response.content) == {"message": _("Hello, World!")}
 
 
 # =============================================================================

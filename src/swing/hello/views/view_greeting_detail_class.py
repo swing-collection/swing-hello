@@ -13,7 +13,7 @@ from django.views import View
 
 # Import | Local
 from ..models import Greeting, PERSISTENCE_ENABLED
-from .helpers_api import greeting_to_dict
+from .helper_greeting_to_dict import greeting_to_dict
 
 
 class GreetingDetailView(View):

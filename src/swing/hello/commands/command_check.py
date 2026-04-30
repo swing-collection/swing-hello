@@ -43,16 +43,14 @@ class CheckCommand:
             )
 
             # Filter to our app
-            app_errors = [
-                e for e in errors if "swing.hello" in str(e.obj) or not e.obj
-            ]
+            app_errors = [e for e in errors if "swing.hello" in str(e.obj) or not e.obj]
 
             if not app_errors:
                 print("No issues found!")
                 return 0
 
             for error in app_errors:
-                level = error.level_tag.upper()
+                level = str(error.level_tag).upper()  # type: ignore[attr-defined]
                 print(f"[{level}] {error.id}: {error.msg}")
                 if error.hint:
                     print(f"  Hint: {error.hint}")

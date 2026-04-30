@@ -13,7 +13,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 
 # Import | Local
-from .helpers_api import generate_greeting, parse_json_body
+from .helper_generate_greeting import generate_greeting
+from .helper_parse_json_body import parse_json_body
 
 
 @csrf_exempt

@@ -27,14 +27,14 @@ Classes:
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any
+from typing import cast
+
+from django.http import HttpRequest, HttpResponse
+from django.test import RequestFactory
+from django.utils.translation import gettext as _
 
 # Import | Libraries
 import pytest
-from django.http import HttpResponse
-from django.http import HttpRequest
-from django.test import RequestFactory
-from django.utils.translation import gettext as _
 
 # Import | Local Modules
 from swing.hello.views.view_hello_response_class import HelloResponseView
@@ -86,7 +86,7 @@ class TestHelloResponseView:
         with the content "Hello!".
         """
         request: HttpRequest = self.factory.get("/hello/response")
-        response: HttpResponse = HelloResponseView.as_view()(request)
+        response = cast(HttpResponse, HelloResponseView.as_view()(request))
 
         assert response.status_code == 200
         assert response.content.decode() == _("Hello!")

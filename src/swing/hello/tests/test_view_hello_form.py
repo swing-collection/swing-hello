@@ -20,21 +20,21 @@ Classes:
 
 """
 
-
 # =============================================================================
 # Imports
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any
+from typing import cast
 
-# Import | Libraries
-import pytest
-from django.http import HttpResponse
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from django.test import RequestFactory
 from django.utils.translation import gettext as _
 
+# Import | Libraries
+import pytest
+
+# Import | Local
 # Import | Local Modules
 from ..views.view_hello_form_class import HelloFormView
 from ..views.view_hello_form_func import hello_form_view
@@ -102,7 +102,7 @@ class TestHelloFormView:
         Ensures that the class-based view correctly renders the form page.
         """
         request: HttpRequest = self.factory.get(path="/hello/form")
-        response: HttpResponse = HelloFormView.as_view()(request)
+        response = cast(HttpResponse, HelloFormView.as_view()(request))
 
         assert response.status_code == 200
         assert "form" in response.content.decode()
@@ -119,7 +119,7 @@ class TestHelloFormView:
             path="/hello/form",
             data={"name": "Alice"},
         )
-        response: HttpResponse = HelloFormView.as_view()(request)
+        response = cast(HttpResponse, HelloFormView.as_view()(request))
 
         assert response.status_code == 200
         assert "Hello, Alice!" in response.content.decode()

@@ -41,12 +41,10 @@ class StatusCommand:
 
             print("Swing Hello Application Status")
             print("=" * 40)
-            print(f"Status:        OK")
+            print("Status:        OK")
             print(f"Version:       {VERSION}")
             print(f"Django:        {django_version}")
-            print(
-                f"Persistence:   {'Enabled' if PERSISTENCE_ENABLED else 'Disabled'}"
-            )
+            print(f"Persistence:   {'Enabled' if PERSISTENCE_ENABLED else 'Disabled'}")
             print("=" * 40)
             print("Application is running successfully!")
             return 0

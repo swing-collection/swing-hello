@@ -25,8 +25,9 @@ Classes:
 
 # Import | Standard Library
 import json
+from typing import cast
 
-from django.http import HttpRequest, JsonResponse
+from django.http import HttpResponse
 from django.test import RequestFactory
 
 # Import | Libraries
@@ -137,7 +138,7 @@ class TestGreetAPI:
             data=json.dumps({"name": "Jane"}),
             content_type="application/json",
         )
-        response = GreetView.as_view()(request)
+        response = cast(HttpResponse, GreetView.as_view()(request))
 
         assert response.status_code == 200
         data = json.loads(response.content)

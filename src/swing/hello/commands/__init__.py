@@ -33,7 +33,8 @@ Usage:
 
 # Import | Local
 # Import | Local Modules
-from .cli import create_parser, main
+from .cli_main import main
+from .cli_parser import create_parser
 from .command_check import CheckCommand
 from .command_greet import GreetCommand
 from .command_status import StatusCommand

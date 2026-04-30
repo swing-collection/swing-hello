@@ -83,9 +83,7 @@ class GreetingForm(forms.Form):
         """Validate the name field."""
         name: str = self.cleaned_data.get("name", "")
         if not name.strip():
-            raise ValidationError(
-                message=_("Name cannot be empty or only whitespace.")
-            )
+            raise ValidationError(message=_("Name cannot be empty or only whitespace."))
         if not all(char.isalpha() or char.isspace() for char in name):
             raise ValidationError(
                 message=_("Name should contain only letters and spaces.")
@@ -106,13 +104,9 @@ class GreetingForm(forms.Form):
         style = self.cleaned_data.get("style", GreetingStyle.CASUAL)
 
         messages = {
-            GreetingStyle.FORMAL: _(
-                "Good day, {name}. It is a pleasure to meet you."
-            ),
+            GreetingStyle.FORMAL: _("Good day, {name}. It is a pleasure to meet you."),
             GreetingStyle.CASUAL: _("Hello, {name}!"),
-            GreetingStyle.ENTHUSIASTIC: _(
-                "Hey {name}! So excited to see you!"
-            ),
+            GreetingStyle.ENTHUSIASTIC: _("Hey {name}! So excited to see you!"),
         }
 
         template = messages.get(style, messages[GreetingStyle.CASUAL])
@@ -129,9 +123,7 @@ class GreetingForm(forms.Form):
         return {
             "name": self.cleaned_data.get("name", ""),
             "style": self.cleaned_data.get("style", GreetingStyle.CASUAL),
-            "language": self.cleaned_data.get(
-                "language", GreetingLanguage.ENGLISH
-            ),
+            "language": self.cleaned_data.get("language", GreetingLanguage.ENGLISH),
             "message": self.get_greeting_message(),
         }
 

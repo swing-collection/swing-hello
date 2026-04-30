@@ -60,9 +60,7 @@ class HelloForm(forms.Form):
         """
         name: str = self.cleaned_data.get("name", "")
         if not name.strip():
-            raise ValidationError(
-                message=_("Name cannot be empty or only whitespace.")
-            )
+            raise ValidationError(message=_("Name cannot be empty or only whitespace."))
         if not all(char.isalpha() or char.isspace() for char in name):
             raise ValidationError(
                 message=_("Name should contain only letters and spaces.")

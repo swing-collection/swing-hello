@@ -74,9 +74,19 @@ urlpatterns: list[URLPattern] = [
         name="hello_response",
     ),
     path(
+        route="response_func",
+        view=hello_response_view,
+        name="hello_response_func",
+    ),
+    path(
         route="template",
         view=HelloTemplateView.as_view(),
         name="hello_template",
+    ),
+    path(
+        route="template_func",
+        view=hello_template_view,
+        name="hello_template_func",
     ),
     path(
         route="json",

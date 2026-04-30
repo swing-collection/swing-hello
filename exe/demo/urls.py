@@ -21,9 +21,6 @@ Defines URL patterns for the demo project. This includes:
 # Imports
 # =============================================================================
 
-# Import | Standard Library
-
-# Import | Libraries
 from django.contrib import admin
 from django.urls import include, path
 from django.urls.resolvers import URLResolver

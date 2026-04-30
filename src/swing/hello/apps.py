@@ -20,9 +20,6 @@ app registration.
 # Imports
 # =============================================================================
 
-# Import | Standard Library
-
-# Import | Libraries
 from django.apps import AppConfig
 from django.utils.translation import gettext_lazy as _
 
@@ -42,5 +39,5 @@ class SwingHelloConfig(AppConfig):
 
     name = "swing.hello"
     label = "swing_hello"
-    verbose_name: str = _("Swing Hello")
+    verbose_name = _("Swing Hello")
     default_auto_field: str = "django.db.models.BigAutoField"

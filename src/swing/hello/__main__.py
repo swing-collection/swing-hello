@@ -27,7 +27,7 @@ Usage:
 import sys
 
 # Import | Local Modules
-from swing.hello.commands.command_status import main as cli_main
+from swing.hello.commands.cli_main import main as cli_main
 
 # =============================================================================
 # Main

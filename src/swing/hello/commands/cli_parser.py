@@ -1,21 +1,14 @@
 # -*- coding: utf-8 -*-
 
 """
-CLI Module
+CLI Parser
 ==========
 
-Command-line interface for the Swing Hello application.
+Command-line argument parser for the Swing Hello application.
 """
 
 # Import | Standard Library
 import argparse
-from typing import Sequence
-
-# Import | Local
-from .command_check import CheckCommand
-from .command_greet import GreetCommand
-from .command_status import StatusCommand
-from .command_version import VersionCommand
 
 
 def create_parser() -> argparse.ArgumentParser:
@@ -76,33 +69,4 @@ def create_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def main(args: Sequence[str] | None = None) -> int:
-    """
-    Main entry point for the CLI.
-
-    Args:
-        args: Command line arguments (defaults to sys.argv).
-
-    Returns:
-        int: Exit code.
-    """
-    parser = create_parser()
-    parsed = parser.parse_args(args)
-
-    if parsed.command == "status" or parsed.command is None:
-        return StatusCommand().run()
-    elif parsed.command == "version":
-        return VersionCommand().run()
-    elif parsed.command == "check":
-        return CheckCommand().run()
-    elif parsed.command == "greet":
-        return GreetCommand(
-            name=parsed.name,
-            style=parsed.style,
-        ).run()
-    else:
-        parser.print_help()
-        return 0
-
-
-__all__: list[str] = ["create_parser", "main"]
+__all__: list[str] = ["create_parser"]
