@@ -1,0 +1,225 @@
+# JAPANESE TRANSLATION FOR SWING HELLO
+# Copyright (C) 2024 Scape Press
+# This file is distributed under the BSD 3-Clause License.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: swing-hello 0.3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: forms/form_hello.py
+msgid "Your Name"
+msgstr "お名前"
+
+#: forms/form_hello.py
+msgid "Enter your name"
+msgstr "お名前を入力してください"
+
+#: forms/form_hello.py
+msgid "Please enter your full name."
+msgstr "フルネームを入力してください。"
+
+#: forms/form_hello.py
+msgid "Name cannot be empty or only whitespace."
+msgstr "名前は空白のみではいけません。"
+
+#: forms/form_hello.py
+msgid "Name should contain only letters and spaces."
+msgstr "名前には文字とスペースのみを含めてください。"
+
+#: forms/form_hello.py
+msgid "Greeting Style"
+msgstr "挨拶スタイル"
+
+#: forms/form_hello.py
+msgid "Choose how you'd like to be greeted."
+msgstr "挨拶の仕方を選んでください。"
+
+#: forms/form_hello.py
+msgid "Language"
+msgstr "言語"
+
+#: forms/form_hello.py
+msgid "Choose the language for your greeting."
+msgstr "挨拶の言語を選んでください。"
+
+#: forms/form_hello.py
+msgid "Formal"
+msgstr "フォーマル"
+
+#: forms/form_hello.py
+msgid "Casual"
+msgstr "カジュアル"
+
+#: forms/form_hello.py
+msgid "Enthusiastic"
+msgstr "熱狂的"
+
+#: forms/form_hello.py
+msgid "English"
+msgstr "英語"
+
+#: forms/form_hello.py
+msgid "Dutch"
+msgstr "オランダ語"
+
+#: forms/form_hello.py
+msgid "German"
+msgstr "ドイツ語"
+
+#: forms/form_hello.py
+msgid "French"
+msgstr "フランス語"
+
+#: forms/form_hello.py
+msgid "Spanish"
+msgstr "スペイン語"
+
+#: forms/form_hello.py
+msgid "Italian"
+msgstr "イタリア語"
+
+#: forms/form_hello.py
+msgid "Portuguese"
+msgstr "ポルトガル語"
+
+#: forms/form_hello.py
+msgid "Japanese"
+msgstr "日本語"
+
+#: forms/form_hello.py
+msgid "Chinese"
+msgstr "中国語"
+
+#: forms/form_hello.py
+msgid "Korean"
+msgstr "韓国語"
+
+#: views/view_hello_form.py models.py forms/form_hello.py
+msgid "Hello, {name}!"
+msgstr "こんにちは、{name}さん！"
+
+#: views/view_hello_json.py
+msgid "Hello, World!"
+msgstr "こんにちは、世界！"
+
+#: models.py forms/form_hello.py
+msgid "Good day, {name}. It is a pleasure to meet you."
+msgstr "{name}様、ごきげんよう。お会いできて光栄です。"
+
+#: models.py forms/form_hello.py
+msgid "Hey {name}! So excited to see you!"
+msgstr "やあ{name}！会えてすごく嬉しい！"
+
+#: models.py
+msgid "Name"
+msgstr "名前"
+
+#: models.py
+msgid "The name of the person being greeted."
+msgstr "挨拶される人の名前。"
+
+#: models.py
+msgid "Message"
+msgstr "メッセージ"
+
+#: models.py
+msgid "The generated greeting message."
+msgstr "生成された挨拶メッセージ。"
+
+#: models.py
+msgid "Style"
+msgstr "スタイル"
+
+#: models.py
+msgid "The style of greeting."
+msgstr "挨拶のスタイル。"
+
+#: models.py
+msgid "Created At"
+msgstr "作成日時"
+
+#: models.py
+msgid "When the greeting was created."
+msgstr "挨拶が作成された日時。"
+
+#: models.py
+msgid "IP Address"
+msgstr "IPアドレス"
+
+#: models.py
+msgid "IP address of the requester."
+msgstr "リクエスト者のIPアドレス。"
+
+#: models.py
+msgid "Greeting"
+msgstr "挨拶"
+
+#: models.py
+msgid "Greetings"
+msgstr "挨拶一覧"
+
+#: views/view_hello_api.py
+msgid "Persistence is disabled"
+msgstr "永続化は無効です"
+
+#: views/view_hello_api.py
+msgid "Name is required"
+msgstr "名前は必須です"
+
+#: views/view_hello_api.py
+msgid "Greeting not found"
+msgstr "挨拶が見つかりません"
+
+#: views/view_hello_api.py
+msgid "Greeting deleted"
+msgstr "挨拶を削除しました"
+
+#: templates/swing_hello/base.html
+msgid "Home"
+msgstr "ホーム"
+
+#: templates/swing_hello/base.html
+msgid "Form"
+msgstr "フォーム"
+
+#: templates/swing_hello/base.html
+msgid "API"
+msgstr "API"
+
+#: templates/swing_hello/base.html
+msgid "Built with"
+msgstr "構築："
+
+#: templates/swing_hello/base.html
+msgid "using"
+msgstr "使用"
+
+#: templates/swing_hello/hello_form.html
+msgid "Hello Form"
+msgstr "挨拶フォーム"
+
+#: templates/swing_hello/hello_form.html
+msgid "Say Hello"
+msgstr "挨拶する"
+
+#: templates/swing_hello/hello_form.html
+msgid "Enter your name and we'll greet you!"
+msgstr "お名前を入力してください。挨拶します！"
+
+#: templates/swing_hello/hello_form.html
+msgid "Submit"
+msgstr "送信"
+
+#: commands/command_status.py
+msgid "Swing Hello application is running successfully!"
+msgstr "Swing Helloアプリケーションは正常に動作しています！"

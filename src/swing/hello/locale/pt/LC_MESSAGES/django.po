@@ -1,0 +1,225 @@
+# PORTUGUESE TRANSLATION FOR SWING HELLO
+# Copyright (C) 2024 Scape Press
+# This file is distributed under the BSD 3-Clause License.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: swing-hello 0.3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Portuguese\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: forms/form_hello.py
+msgid "Your Name"
+msgstr "Seu nome"
+
+#: forms/form_hello.py
+msgid "Enter your name"
+msgstr "Digite seu nome"
+
+#: forms/form_hello.py
+msgid "Please enter your full name."
+msgstr "Por favor, digite seu nome completo."
+
+#: forms/form_hello.py
+msgid "Name cannot be empty or only whitespace."
+msgstr "O nome não pode estar vazio ou conter apenas espaços."
+
+#: forms/form_hello.py
+msgid "Name should contain only letters and spaces."
+msgstr "O nome deve conter apenas letras e espaços."
+
+#: forms/form_hello.py
+msgid "Greeting Style"
+msgstr "Estilo de saudação"
+
+#: forms/form_hello.py
+msgid "Choose how you'd like to be greeted."
+msgstr "Escolha como você gostaria de ser saudado."
+
+#: forms/form_hello.py
+msgid "Language"
+msgstr "Idioma"
+
+#: forms/form_hello.py
+msgid "Choose the language for your greeting."
+msgstr "Escolha o idioma para sua saudação."
+
+#: forms/form_hello.py
+msgid "Formal"
+msgstr "Formal"
+
+#: forms/form_hello.py
+msgid "Casual"
+msgstr "Casual"
+
+#: forms/form_hello.py
+msgid "Enthusiastic"
+msgstr "Entusiasmado"
+
+#: forms/form_hello.py
+msgid "English"
+msgstr "Inglês"
+
+#: forms/form_hello.py
+msgid "Dutch"
+msgstr "Holandês"
+
+#: forms/form_hello.py
+msgid "German"
+msgstr "Alemão"
+
+#: forms/form_hello.py
+msgid "French"
+msgstr "Francês"
+
+#: forms/form_hello.py
+msgid "Spanish"
+msgstr "Espanhol"
+
+#: forms/form_hello.py
+msgid "Italian"
+msgstr "Italiano"
+
+#: forms/form_hello.py
+msgid "Portuguese"
+msgstr "Português"
+
+#: forms/form_hello.py
+msgid "Japanese"
+msgstr "Japonês"
+
+#: forms/form_hello.py
+msgid "Chinese"
+msgstr "Chinês"
+
+#: forms/form_hello.py
+msgid "Korean"
+msgstr "Coreano"
+
+#: views/view_hello_form.py models.py forms/form_hello.py
+msgid "Hello, {name}!"
+msgstr "Olá, {name}!"
+
+#: views/view_hello_json.py
+msgid "Hello, World!"
+msgstr "Olá, Mundo!"
+
+#: models.py forms/form_hello.py
+msgid "Good day, {name}. It is a pleasure to meet you."
+msgstr "Bom dia, {name}. É um prazer conhecê-lo."
+
+#: models.py forms/form_hello.py
+msgid "Hey {name}! So excited to see you!"
+msgstr "Ei {name}! Que alegria te ver!"
+
+#: models.py
+msgid "Name"
+msgstr "Nome"
+
+#: models.py
+msgid "The name of the person being greeted."
+msgstr "O nome da pessoa que está sendo saudada."
+
+#: models.py
+msgid "Message"
+msgstr "Mensagem"
+
+#: models.py
+msgid "The generated greeting message."
+msgstr "A mensagem de saudação gerada."
+
+#: models.py
+msgid "Style"
+msgstr "Estilo"
+
+#: models.py
+msgid "The style of greeting."
+msgstr "O estilo da saudação."
+
+#: models.py
+msgid "Created At"
+msgstr "Criado em"
+
+#: models.py
+msgid "When the greeting was created."
+msgstr "Quando a saudação foi criada."
+
+#: models.py
+msgid "IP Address"
+msgstr "Endereço IP"
+
+#: models.py
+msgid "IP address of the requester."
+msgstr "Endereço IP do solicitante."
+
+#: models.py
+msgid "Greeting"
+msgstr "Saudação"
+
+#: models.py
+msgid "Greetings"
+msgstr "Saudações"
+
+#: views/view_hello_api.py
+msgid "Persistence is disabled"
+msgstr "A persistência está desabilitada"
+
+#: views/view_hello_api.py
+msgid "Name is required"
+msgstr "O nome é obrigatório"
+
+#: views/view_hello_api.py
+msgid "Greeting not found"
+msgstr "Saudação não encontrada"
+
+#: views/view_hello_api.py
+msgid "Greeting deleted"
+msgstr "Saudação excluída"
+
+#: templates/swing_hello/base.html
+msgid "Home"
+msgstr "Início"
+
+#: templates/swing_hello/base.html
+msgid "Form"
+msgstr "Formulário"
+
+#: templates/swing_hello/base.html
+msgid "API"
+msgstr "API"
+
+#: templates/swing_hello/base.html
+msgid "Built with"
+msgstr "Construído com"
+
+#: templates/swing_hello/base.html
+msgid "using"
+msgstr "usando"
+
+#: templates/swing_hello/hello_form.html
+msgid "Hello Form"
+msgstr "Formulário de saudação"
+
+#: templates/swing_hello/hello_form.html
+msgid "Say Hello"
+msgstr "Diga olá"
+
+#: templates/swing_hello/hello_form.html
+msgid "Enter your name and we'll greet you!"
+msgstr "Digite seu nome e nós vamos saudá-lo!"
+
+#: templates/swing_hello/hello_form.html
+msgid "Submit"
+msgstr "Enviar"
+
+#: commands/command_status.py
+msgid "Swing Hello application is running successfully!"
+msgstr "A aplicação Swing Hello está funcionando com sucesso!"

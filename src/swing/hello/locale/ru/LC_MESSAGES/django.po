@@ -1,0 +1,229 @@
+# RUSSIAN TRANSLATION FOR SWING HELLO
+# Copyright (C) 2024 Scape Press
+# This file is distributed under the BSD 3-Clause License.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: swing-hello 0.3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: forms/form_hello.py
+msgid "Your Name"
+msgstr "Ваше имя"
+
+#: forms/form_hello.py
+msgid "Enter your name"
+msgstr "Введите ваше имя"
+
+#: forms/form_hello.py
+msgid "Please enter your full name."
+msgstr "Пожалуйста, введите ваше полное имя."
+
+#: forms/form_hello.py
+msgid "Name cannot be empty or only whitespace."
+msgstr "Имя не может быть пустым или содержать только пробелы."
+
+#: forms/form_hello.py
+msgid "Name should contain only letters and spaces."
+msgstr "Имя должно содержать только буквы и пробелы."
+
+#: forms/form_hello.py
+msgid "Greeting Style"
+msgstr "Стиль приветствия"
+
+#: forms/form_hello.py
+msgid "Choose how you'd like to be greeted."
+msgstr "Выберите, как вы хотите, чтобы вас приветствовали."
+
+#: forms/form_hello.py
+msgid "Language"
+msgstr "Язык"
+
+#: forms/form_hello.py
+msgid "Choose the language for your greeting."
+msgstr "Выберите язык для приветствия."
+
+#: forms/form_hello.py
+msgid "Formal"
+msgstr "Формальный"
+
+#: forms/form_hello.py
+msgid "Casual"
+msgstr "Неформальный"
+
+#: forms/form_hello.py
+msgid "Enthusiastic"
+msgstr "Восторженный"
+
+#: forms/form_hello.py
+msgid "English"
+msgstr "Английский"
+
+#: forms/form_hello.py
+msgid "Dutch"
+msgstr "Голландский"
+
+#: forms/form_hello.py
+msgid "German"
+msgstr "Немецкий"
+
+#: forms/form_hello.py
+msgid "French"
+msgstr "Французский"
+
+#: forms/form_hello.py
+msgid "Spanish"
+msgstr "Испанский"
+
+#: forms/form_hello.py
+msgid "Italian"
+msgstr "Итальянский"
+
+#: forms/form_hello.py
+msgid "Portuguese"
+msgstr "Португальский"
+
+#: forms/form_hello.py
+msgid "Japanese"
+msgstr "Японский"
+
+#: forms/form_hello.py
+msgid "Chinese"
+msgstr "Китайский"
+
+#: forms/form_hello.py
+msgid "Korean"
+msgstr "Корейский"
+
+#: forms/form_hello.py
+msgid "Russian"
+msgstr "Русский"
+
+#: views/view_hello_form.py models.py forms/form_hello.py
+msgid "Hello, {name}!"
+msgstr "Привет, {name}!"
+
+#: views/view_hello_json.py
+msgid "Hello, World!"
+msgstr "Привет, Мир!"
+
+#: models.py forms/form_hello.py
+msgid "Good day, {name}. It is a pleasure to meet you."
+msgstr "Добрый день, {name}. Рад с вами познакомиться."
+
+#: models.py forms/form_hello.py
+msgid "Hey {name}! So excited to see you!"
+msgstr "Привет {name}! Так рад тебя видеть!"
+
+#: models.py
+msgid "Name"
+msgstr "Имя"
+
+#: models.py
+msgid "The name of the person being greeted."
+msgstr "Имя человека, которого приветствуют."
+
+#: models.py
+msgid "Message"
+msgstr "Сообщение"
+
+#: models.py
+msgid "The generated greeting message."
+msgstr "Сгенерированное приветственное сообщение."
+
+#: models.py
+msgid "Style"
+msgstr "Стиль"
+
+#: models.py
+msgid "The style of greeting."
+msgstr "Стиль приветствия."
+
+#: models.py
+msgid "Created At"
+msgstr "Создано"
+
+#: models.py
+msgid "When the greeting was created."
+msgstr "Когда было создано приветствие."
+
+#: models.py
+msgid "IP Address"
+msgstr "IP-адрес"
+
+#: models.py
+msgid "IP address of the requester."
+msgstr "IP-адрес запрашивающего."
+
+#: models.py
+msgid "Greeting"
+msgstr "Приветствие"
+
+#: models.py
+msgid "Greetings"
+msgstr "Приветствия"
+
+#: views/view_hello_api.py
+msgid "Persistence is disabled"
+msgstr "Сохранение отключено"
+
+#: views/view_hello_api.py
+msgid "Name is required"
+msgstr "Имя обязательно"
+
+#: views/view_hello_api.py
+msgid "Greeting not found"
+msgstr "Приветствие не найдено"
+
+#: views/view_hello_api.py
+msgid "Greeting deleted"
+msgstr "Приветствие удалено"
+
+#: templates/swing_hello/base.html
+msgid "Home"
+msgstr "Главная"
+
+#: templates/swing_hello/base.html
+msgid "Form"
+msgstr "Форма"
+
+#: templates/swing_hello/base.html
+msgid "API"
+msgstr "API"
+
+#: templates/swing_hello/base.html
+msgid "Built with"
+msgstr "Создано с"
+
+#: templates/swing_hello/base.html
+msgid "using"
+msgstr "используя"
+
+#: templates/swing_hello/hello_form.html
+msgid "Hello Form"
+msgstr "Форма приветствия"
+
+#: templates/swing_hello/hello_form.html
+msgid "Say Hello"
+msgstr "Поздороваться"
+
+#: templates/swing_hello/hello_form.html
+msgid "Enter your name and we'll greet you!"
+msgstr "Введите ваше имя, и мы вас поприветствуем!"
+
+#: templates/swing_hello/hello_form.html
+msgid "Submit"
+msgstr "Отправить"
+
+#: commands/command_status.py
+msgid "Swing Hello application is running successfully!"
+msgstr "Приложение Swing Hello работает успешно!"

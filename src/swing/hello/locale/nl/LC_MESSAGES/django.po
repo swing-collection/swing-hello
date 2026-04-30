@@ -1,0 +1,233 @@
+# DUTCH TRANSLATION FOR SWING HELLO
+# Copyright (C) 2024 Scape Press
+# This file is distributed under the BSD 3-Clause License.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: swing-hello 0.3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Dutch\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: forms/form_hello.py
+msgid "Your Name"
+msgstr "Uw naam"
+
+#: forms/form_hello.py
+msgid "Enter your name"
+msgstr "Voer uw naam in"
+
+#: forms/form_hello.py
+msgid "Please enter your full name."
+msgstr "Voer alstublieft uw volledige naam in."
+
+#: forms/form_hello.py
+msgid "Name cannot be empty or only whitespace."
+msgstr "Naam mag niet leeg zijn of alleen spaties bevatten."
+
+#: forms/form_hello.py
+msgid "Name should contain only letters and spaces."
+msgstr "Naam mag alleen letters en spaties bevatten."
+
+#: forms/form_hello.py
+msgid "Greeting Style"
+msgstr "Begroetingsstijl"
+
+#: forms/form_hello.py
+msgid "Choose how you'd like to be greeted."
+msgstr "Kies hoe u begroet wilt worden."
+
+#: forms/form_hello.py
+msgid "Language"
+msgstr "Taal"
+
+#: forms/form_hello.py
+msgid "Choose the language for your greeting."
+msgstr "Kies de taal voor uw begroeting."
+
+#: forms/form_hello.py
+msgid "Formal"
+msgstr "Formeel"
+
+#: forms/form_hello.py
+msgid "Casual"
+msgstr "Informeel"
+
+#: forms/form_hello.py
+msgid "Enthusiastic"
+msgstr "Enthousiast"
+
+#: forms/form_hello.py
+msgid "English"
+msgstr "Engels"
+
+#: forms/form_hello.py
+msgid "Dutch"
+msgstr "Nederlands"
+
+#: forms/form_hello.py
+msgid "German"
+msgstr "Duits"
+
+#: forms/form_hello.py
+msgid "French"
+msgstr "Frans"
+
+#: forms/form_hello.py
+msgid "Spanish"
+msgstr "Spaans"
+
+#: forms/form_hello.py
+msgid "Italian"
+msgstr "Italiaans"
+
+#: forms/form_hello.py
+msgid "Portuguese"
+msgstr "Portugees"
+
+#: forms/form_hello.py
+msgid "Japanese"
+msgstr "Japans"
+
+#: forms/form_hello.py
+msgid "Chinese"
+msgstr "Chinees"
+
+#: forms/form_hello.py
+msgid "Korean"
+msgstr "Koreaans"
+
+#: forms/form_hello.py
+msgid "Russian"
+msgstr "Russisch"
+
+#: forms/form_hello.py
+msgid "Arabic"
+msgstr "Arabisch"
+
+#: views/view_hello_form.py models.py forms/form_hello.py
+msgid "Hello, {name}!"
+msgstr "Hallo, {name}!"
+
+#: views/view_hello_json.py
+msgid "Hello, World!"
+msgstr "Hallo, Wereld!"
+
+#: models.py forms/form_hello.py
+msgid "Good day, {name}. It is a pleasure to meet you."
+msgstr "Goedendag, {name}. Het is mij een genoegen u te ontmoeten."
+
+#: models.py forms/form_hello.py
+msgid "Hey {name}! So excited to see you!"
+msgstr "Hé {name}! Zo blij om je te zien!"
+
+#: models.py
+msgid "Name"
+msgstr "Naam"
+
+#: models.py
+msgid "The name of the person being greeted."
+msgstr "De naam van de persoon die begroet wordt."
+
+#: models.py
+msgid "Message"
+msgstr "Bericht"
+
+#: models.py
+msgid "The generated greeting message."
+msgstr "Het gegenereerde begroetingsbericht."
+
+#: models.py
+msgid "Style"
+msgstr "Stijl"
+
+#: models.py
+msgid "The style of greeting."
+msgstr "De stijl van de begroeting."
+
+#: models.py
+msgid "Created At"
+msgstr "Aangemaakt op"
+
+#: models.py
+msgid "When the greeting was created."
+msgstr "Wanneer de begroeting is aangemaakt."
+
+#: models.py
+msgid "IP Address"
+msgstr "IP-adres"
+
+#: models.py
+msgid "IP address of the requester."
+msgstr "IP-adres van de aanvrager."
+
+#: models.py
+msgid "Greeting"
+msgstr "Begroeting"
+
+#: models.py
+msgid "Greetings"
+msgstr "Begroetingen"
+
+#: views/view_hello_api.py
+msgid "Persistence is disabled"
+msgstr "Persistentie is uitgeschakeld"
+
+#: views/view_hello_api.py
+msgid "Name is required"
+msgstr "Naam is verplicht"
+
+#: views/view_hello_api.py
+msgid "Greeting not found"
+msgstr "Begroeting niet gevonden"
+
+#: views/view_hello_api.py
+msgid "Greeting deleted"
+msgstr "Begroeting verwijderd"
+
+#: templates/swing_hello/base.html
+msgid "Home"
+msgstr "Home"
+
+#: templates/swing_hello/base.html
+msgid "Form"
+msgstr "Formulier"
+
+#: templates/swing_hello/base.html
+msgid "API"
+msgstr "API"
+
+#: templates/swing_hello/base.html
+msgid "Built with"
+msgstr "Gebouwd met"
+
+#: templates/swing_hello/base.html
+msgid "using"
+msgstr "met"
+
+#: templates/swing_hello/hello_form.html
+msgid "Hello Form"
+msgstr "Hallo formulier"
+
+#: templates/swing_hello/hello_form.html
+msgid "Say Hello"
+msgstr "Zeg hallo"
+
+#: templates/swing_hello/hello_form.html
+msgid "Enter your name and we'll greet you!"
+msgstr "Voer uw naam in en wij begroeten u!"
+
+#: templates/swing_hello/hello_form.html
+msgid "Submit"
+msgstr "Versturen"
+
+#: commands/command_status.py
+msgid "Swing Hello application is running successfully!"
+msgstr "Swing Hello applicatie werkt succesvol!"

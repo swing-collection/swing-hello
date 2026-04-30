@@ -1,0 +1,225 @@
+# CHINESE (SIMPLIFIED) TRANSLATION FOR SWING HELLO
+# Copyright (C) 2024 Scape Press
+# This file is distributed under the BSD 3-Clause License.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: swing-hello 0.3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Chinese (Simplified)\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: forms/form_hello.py
+msgid "Your Name"
+msgstr "您的姓名"
+
+#: forms/form_hello.py
+msgid "Enter your name"
+msgstr "请输入您的姓名"
+
+#: forms/form_hello.py
+msgid "Please enter your full name."
+msgstr "请输入您的全名。"
+
+#: forms/form_hello.py
+msgid "Name cannot be empty or only whitespace."
+msgstr "姓名不能为空或仅包含空格。"
+
+#: forms/form_hello.py
+msgid "Name should contain only letters and spaces."
+msgstr "姓名只能包含字母和空格。"
+
+#: forms/form_hello.py
+msgid "Greeting Style"
+msgstr "问候风格"
+
+#: forms/form_hello.py
+msgid "Choose how you'd like to be greeted."
+msgstr "选择您希望被问候的方式。"
+
+#: forms/form_hello.py
+msgid "Language"
+msgstr "语言"
+
+#: forms/form_hello.py
+msgid "Choose the language for your greeting."
+msgstr "选择问候语言。"
+
+#: forms/form_hello.py
+msgid "Formal"
+msgstr "正式"
+
+#: forms/form_hello.py
+msgid "Casual"
+msgstr "随意"
+
+#: forms/form_hello.py
+msgid "Enthusiastic"
+msgstr "热情"
+
+#: forms/form_hello.py
+msgid "English"
+msgstr "英语"
+
+#: forms/form_hello.py
+msgid "Dutch"
+msgstr "荷兰语"
+
+#: forms/form_hello.py
+msgid "German"
+msgstr "德语"
+
+#: forms/form_hello.py
+msgid "French"
+msgstr "法语"
+
+#: forms/form_hello.py
+msgid "Spanish"
+msgstr "西班牙语"
+
+#: forms/form_hello.py
+msgid "Italian"
+msgstr "意大利语"
+
+#: forms/form_hello.py
+msgid "Portuguese"
+msgstr "葡萄牙语"
+
+#: forms/form_hello.py
+msgid "Japanese"
+msgstr "日语"
+
+#: forms/form_hello.py
+msgid "Chinese"
+msgstr "中文"
+
+#: forms/form_hello.py
+msgid "Korean"
+msgstr "韩语"
+
+#: views/view_hello_form.py models.py forms/form_hello.py
+msgid "Hello, {name}!"
+msgstr "你好，{name}！"
+
+#: views/view_hello_json.py
+msgid "Hello, World!"
+msgstr "你好，世界！"
+
+#: models.py forms/form_hello.py
+msgid "Good day, {name}. It is a pleasure to meet you."
+msgstr "{name}，您好。很高兴认识您。"
+
+#: models.py forms/form_hello.py
+msgid "Hey {name}! So excited to see you!"
+msgstr "嘿{name}！见到你太开心了！"
+
+#: models.py
+msgid "Name"
+msgstr "姓名"
+
+#: models.py
+msgid "The name of the person being greeted."
+msgstr "被问候者的姓名。"
+
+#: models.py
+msgid "Message"
+msgstr "消息"
+
+#: models.py
+msgid "The generated greeting message."
+msgstr "生成的问候消息。"
+
+#: models.py
+msgid "Style"
+msgstr "风格"
+
+#: models.py
+msgid "The style of greeting."
+msgstr "问候的风格。"
+
+#: models.py
+msgid "Created At"
+msgstr "创建时间"
+
+#: models.py
+msgid "When the greeting was created."
+msgstr "问候创建的时间。"
+
+#: models.py
+msgid "IP Address"
+msgstr "IP地址"
+
+#: models.py
+msgid "IP address of the requester."
+msgstr "请求者的IP地址。"
+
+#: models.py
+msgid "Greeting"
+msgstr "问候"
+
+#: models.py
+msgid "Greetings"
+msgstr "问候列表"
+
+#: views/view_hello_api.py
+msgid "Persistence is disabled"
+msgstr "持久化已禁用"
+
+#: views/view_hello_api.py
+msgid "Name is required"
+msgstr "姓名是必填项"
+
+#: views/view_hello_api.py
+msgid "Greeting not found"
+msgstr "未找到问候"
+
+#: views/view_hello_api.py
+msgid "Greeting deleted"
+msgstr "问候已删除"
+
+#: templates/swing_hello/base.html
+msgid "Home"
+msgstr "首页"
+
+#: templates/swing_hello/base.html
+msgid "Form"
+msgstr "表单"
+
+#: templates/swing_hello/base.html
+msgid "API"
+msgstr "接口"
+
+#: templates/swing_hello/base.html
+msgid "Built with"
+msgstr "构建于"
+
+#: templates/swing_hello/base.html
+msgid "using"
+msgstr "使用"
+
+#: templates/swing_hello/hello_form.html
+msgid "Hello Form"
+msgstr "问候表单"
+
+#: templates/swing_hello/hello_form.html
+msgid "Say Hello"
+msgstr "打招呼"
+
+#: templates/swing_hello/hello_form.html
+msgid "Enter your name and we'll greet you!"
+msgstr "输入您的姓名，我们将向您问好！"
+
+#: templates/swing_hello/hello_form.html
+msgid "Submit"
+msgstr "提交"
+
+#: commands/command_status.py
+msgid "Swing Hello application is running successfully!"
+msgstr "Swing Hello应用程序运行成功！"

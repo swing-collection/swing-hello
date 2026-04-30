@@ -1,0 +1,233 @@
+# GERMAN TRANSLATION FOR SWING HELLO
+# Copyright (C) 2024 Scape Press
+# This file is distributed under the BSD 3-Clause License.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: swing-hello 0.3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: forms/form_hello.py
+msgid "Your Name"
+msgstr "Ihr Name"
+
+#: forms/form_hello.py
+msgid "Enter your name"
+msgstr "Geben Sie Ihren Namen ein"
+
+#: forms/form_hello.py
+msgid "Please enter your full name."
+msgstr "Bitte geben Sie Ihren vollständigen Namen ein."
+
+#: forms/form_hello.py
+msgid "Name cannot be empty or only whitespace."
+msgstr "Name darf nicht leer sein oder nur aus Leerzeichen bestehen."
+
+#: forms/form_hello.py
+msgid "Name should contain only letters and spaces."
+msgstr "Name sollte nur Buchstaben und Leerzeichen enthalten."
+
+#: forms/form_hello.py
+msgid "Greeting Style"
+msgstr "Begrüßungsstil"
+
+#: forms/form_hello.py
+msgid "Choose how you'd like to be greeted."
+msgstr "Wählen Sie, wie Sie begrüßt werden möchten."
+
+#: forms/form_hello.py
+msgid "Language"
+msgstr "Sprache"
+
+#: forms/form_hello.py
+msgid "Choose the language for your greeting."
+msgstr "Wählen Sie die Sprache für Ihre Begrüßung."
+
+#: forms/form_hello.py
+msgid "Formal"
+msgstr "Formell"
+
+#: forms/form_hello.py
+msgid "Casual"
+msgstr "Locker"
+
+#: forms/form_hello.py
+msgid "Enthusiastic"
+msgstr "Enthusiastisch"
+
+#: forms/form_hello.py
+msgid "English"
+msgstr "Englisch"
+
+#: forms/form_hello.py
+msgid "Dutch"
+msgstr "Niederländisch"
+
+#: forms/form_hello.py
+msgid "German"
+msgstr "Deutsch"
+
+#: forms/form_hello.py
+msgid "French"
+msgstr "Französisch"
+
+#: forms/form_hello.py
+msgid "Spanish"
+msgstr "Spanisch"
+
+#: forms/form_hello.py
+msgid "Italian"
+msgstr "Italienisch"
+
+#: forms/form_hello.py
+msgid "Portuguese"
+msgstr "Portugiesisch"
+
+#: forms/form_hello.py
+msgid "Japanese"
+msgstr "Japanisch"
+
+#: forms/form_hello.py
+msgid "Chinese"
+msgstr "Chinesisch"
+
+#: forms/form_hello.py
+msgid "Korean"
+msgstr "Koreanisch"
+
+#: forms/form_hello.py
+msgid "Russian"
+msgstr "Russisch"
+
+#: forms/form_hello.py
+msgid "Arabic"
+msgstr "Arabisch"
+
+#: views/view_hello_form.py models.py forms/form_hello.py
+msgid "Hello, {name}!"
+msgstr "Hallo, {name}!"
+
+#: views/view_hello_json.py
+msgid "Hello, World!"
+msgstr "Hallo, Welt!"
+
+#: models.py forms/form_hello.py
+msgid "Good day, {name}. It is a pleasure to meet you."
+msgstr "Guten Tag, {name}. Es ist mir eine Freude, Sie kennenzulernen."
+
+#: models.py forms/form_hello.py
+msgid "Hey {name}! So excited to see you!"
+msgstr "Hey {name}! So aufgeregt, dich zu sehen!"
+
+#: models.py
+msgid "Name"
+msgstr "Name"
+
+#: models.py
+msgid "The name of the person being greeted."
+msgstr "Der Name der Person, die begrüßt wird."
+
+#: models.py
+msgid "Message"
+msgstr "Nachricht"
+
+#: models.py
+msgid "The generated greeting message."
+msgstr "Die generierte Begrüßungsnachricht."
+
+#: models.py
+msgid "Style"
+msgstr "Stil"
+
+#: models.py
+msgid "The style of greeting."
+msgstr "Der Stil der Begrüßung."
+
+#: models.py
+msgid "Created At"
+msgstr "Erstellt am"
+
+#: models.py
+msgid "When the greeting was created."
+msgstr "Wann die Begrüßung erstellt wurde."
+
+#: models.py
+msgid "IP Address"
+msgstr "IP-Adresse"
+
+#: models.py
+msgid "IP address of the requester."
+msgstr "IP-Adresse des Anforderers."
+
+#: models.py
+msgid "Greeting"
+msgstr "Begrüßung"
+
+#: models.py
+msgid "Greetings"
+msgstr "Begrüßungen"
+
+#: views/view_hello_api.py
+msgid "Persistence is disabled"
+msgstr "Persistenz ist deaktiviert"
+
+#: views/view_hello_api.py
+msgid "Name is required"
+msgstr "Name ist erforderlich"
+
+#: views/view_hello_api.py
+msgid "Greeting not found"
+msgstr "Begrüßung nicht gefunden"
+
+#: views/view_hello_api.py
+msgid "Greeting deleted"
+msgstr "Begrüßung gelöscht"
+
+#: templates/swing_hello/base.html
+msgid "Home"
+msgstr "Startseite"
+
+#: templates/swing_hello/base.html
+msgid "Form"
+msgstr "Formular"
+
+#: templates/swing_hello/base.html
+msgid "API"
+msgstr "API"
+
+#: templates/swing_hello/base.html
+msgid "Built with"
+msgstr "Erstellt mit"
+
+#: templates/swing_hello/base.html
+msgid "using"
+msgstr "unter Verwendung von"
+
+#: templates/swing_hello/hello_form.html
+msgid "Hello Form"
+msgstr "Hallo-Formular"
+
+#: templates/swing_hello/hello_form.html
+msgid "Say Hello"
+msgstr "Sag Hallo"
+
+#: templates/swing_hello/hello_form.html
+msgid "Enter your name and we'll greet you!"
+msgstr "Geben Sie Ihren Namen ein und wir begrüßen Sie!"
+
+#: templates/swing_hello/hello_form.html
+msgid "Submit"
+msgstr "Absenden"
+
+#: commands/command_status.py
+msgid "Swing Hello application is running successfully!"
+msgstr "Swing Hello Anwendung läuft erfolgreich!"
