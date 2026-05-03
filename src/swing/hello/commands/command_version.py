@@ -4,7 +4,21 @@
 Version Command
 ===============
 
-CLI command to display version information.
+CLI command to display version and package information.
+
+This command outputs the application version, author, and license
+information to stdout.
+
+Classes:
+    VersionCommand: Display version information.
+
+Example:
+    >>> cmd = VersionCommand()
+    >>> cmd.run()
+    swing-hello 0.3.0
+    Author: Lars van Vianen
+    License: BSD 3-Clause
+    0
 """
 
 # Import | Local
@@ -13,18 +27,27 @@ from .constants import AUTHOR, LICENSE, VERSION
 
 class VersionCommand:
     """
-    CLI Command to Display Version Information
-    ==========================================
+    CLI command to display version and package information.
 
-    Displays the version of the Swing Hello application.
+    Outputs the application version, author name, and license
+    to stdout in a human-readable format.
+
+    Methods:
+        run: Display version information.
+
+    Example:
+        >>> VersionCommand().run()
+        swing-hello 0.3.0
+        ...
+        0
     """
 
     def run(self) -> int:
         """
-        Display version information.
+        Display version, author, and license information.
 
         Returns:
-            int: Exit code (always 0).
+            Always returns 0 (success).
         """
         print(f"swing-hello {VERSION}")
         print(f"Author: {AUTHOR}")

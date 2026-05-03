@@ -6,29 +6,54 @@
 # =============================================================================
 
 """
-URL Configuration
-=================
+URL Configuration for Swing Hello
+==================================
 
-This module defines URL patterns for the `swing.hello` Django application.
-It maps incoming HTTP requests to the appropriate views.
+URL routing configuration for the swing.hello Django application.
 
+This module defines all URL patterns, mapping HTTP endpoints to their
+corresponding view functions and classes. URLs are organized into
+categories for HTML views, form handling, and API endpoints.
 
-Available Endpoints:
---------------------
-- `/`             → Renders the template with context
-                    using `HelloTemplateView`.
-- `/response/`    → Returns a plain text “Hello!” response
-                    using `HelloResponseView`.
-- `/template/`    → Renders the template with context
-                    using `HelloTemplateView`.
-- `/json/`        → Returns a JSON response using `HelloJsonView`.
-- `/json_func/`   → Returns a JSON response using `hello_json_view`.
-- `/form/`        → Displays a form and processes form submission
-                    using `HelloFormView`.
-- `/form_func/`   → Displays a form and processes form submission
-                    using `hello_form_view`.
-- `/api/`         → (Commented) A simple API endpoint returning a
-                    JSON response using `HelloApiView`.
+URL Structure
+-------------
+
+**HTML Views (Template Rendering):**
+
+- ``/`` - Default template view (HelloTemplateView)
+- ``/response`` - Plain text response (CBV: HelloResponseView)
+- ``/response_func`` - Plain text response (FBV: hello_response_view)
+- ``/template`` - Template rendering (CBV: HelloTemplateView)
+- ``/template_func`` - Template rendering (FBV: hello_template_view)
+- ``/json`` - JSON response (CBV: HelloJsonView)
+- ``/json_func`` - JSON response (FBV: hello_json_view)
+- ``/form`` - Form handling (CBV: HelloFormView)
+- ``/form_func`` - Form handling (FBV: hello_form_view)
+
+**API v1 (Function-Based Views):**
+
+- ``/api/greetings`` - List/create greetings (GET, POST)
+- ``/api/greetings/<pk>`` - Retrieve/delete greeting (GET, DELETE)
+- ``/api/greet`` - Generate stateless greeting (POST)
+
+**API v2 (Class-Based Views):**
+
+- ``/api/v2/greetings`` - List/create greetings (GET, POST)
+- ``/api/v2/greetings/<pk>`` - Retrieve/delete greeting (GET, DELETE)
+- ``/api/v2/greet`` - Generate stateless greeting (POST)
+
+Example:
+    Including in project URLconf::
+
+        from django.urls import include, path
+
+        urlpatterns = [
+            path('hello/', include('swing.hello.urls')),
+        ]
+
+Note:
+    Each endpoint has both function-based (FBV) and class-based (CBV)
+    implementations for educational comparison.
 
 """
 

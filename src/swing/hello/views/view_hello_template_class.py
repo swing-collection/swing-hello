@@ -4,7 +4,26 @@
 Hello Template Class View
 =========================
 
-A class-based view that renders a template with a given context.
+A class-based view that renders an HTML template with context data.
+
+This module demonstrates Django's ``TemplateView`` generic class-based
+view. It provides template rendering with custom context data.
+
+Classes:
+    HelloTemplateView: CBV that renders a hello template.
+
+Template:
+    Uses ``swing_hello/hello_template.html``.
+
+Example:
+    URL configuration::
+
+        urlpatterns = [
+            path('hello/', HelloTemplateView.as_view(), name='hello'),
+        ]
+
+See Also:
+    - :func:`hello_template_view`: Function-based equivalent.
 """
 
 # Import | Standard Library
@@ -16,10 +35,22 @@ from django.views.generic.base import TemplateView
 
 class HelloTemplateView(TemplateView):
     """
-    A class-based view that renders a template with a given context.
+    Class-based view for rendering the hello template.
+
+    Extends Django's ``TemplateView`` to render an HTML template with
+    custom context data including a translated title and content.
 
     Attributes:
-        template_name (str): The name of the template to be rendered.
+        template_name: Path to the template file.
+
+    Methods:
+        get_context_data: Add custom context for template rendering.
+
+    Example:
+        >>> view = HelloTemplateView.as_view()
+        >>> response = view(request)
+        >>> 'Hello!' in response.content.decode()
+        True
     """
 
     template_name = "swing_hello/hello_template.html"
@@ -29,13 +60,19 @@ class HelloTemplateView(TemplateView):
         **kwargs: Any,
     ) -> dict[str, Any]:
         """
-        Returns context for rendering the template.
+        Add custom context data for template rendering.
 
-        Parameters:
-            **kwargs (dict[str, Any]): Arbitrary keyword arguments.
+        Extends the base context with a translated title and content text.
+
+        Args:
+            **kwargs: Additional keyword arguments passed to the parent.
 
         Returns:
-            dict: A dictionary containing context data for the template.
+            Context dictionary with title and content keys added.
+
+        Context:
+            title: Translated "Hello!" string.
+            content: Lorem ipsum placeholder text.
         """
         context: dict[str, Any] = super().get_context_data(**kwargs)
         context["title"] = _("Hello!")

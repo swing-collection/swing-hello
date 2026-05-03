@@ -9,24 +9,53 @@
 Views Module
 ============
 
-This module consolidates all view functions and classes used in the Swing Hello
-application. It includes views for handling basic HTTP responses, rendering
-templates, processing forms, and returning JSON responses.
+View functions and classes for the Swing Hello application.
 
-Imported Views:
+This module consolidates all view components including function-based views,
+class-based views, mixins, and helper utilities. Views are organized in
+pairs (function and class implementations) for educational comparison.
+
+View Categories
 ---------------
 
-- hello_response_view (function-based view): Returns a basic HTTP response.
-- HelloResponseView (class-based view): Returns a basic HTTP response.
-- hello_template_view (function-based view): Renders a template with context.
-- HelloTemplateView (class-based view): Renders a template with context.
-- hello_form_view (function-based view): Handles form processing.
-- HelloFormView (class-based view): Handles form processing.
-- hello_json_view (function-based view): Returns a JSON response.
-- HelloJsonView (class-based view): Returns a JSON response.
+**Basic Response Views:**
+    - :func:`hello_response_view` / :class:`HelloResponseView`: Plain text response.
+    - :func:`hello_json_view` / :class:`HelloJsonView`: JSON response.
+    - :func:`hello_template_view` / :class:`HelloTemplateView`: Template rendering.
 
-These views demonstrate basic responses, template rendering, form processing,
-and JSON responses in Django.
+**Form Views:**
+    - :func:`hello_form_view` / :class:`HelloFormView`: Form handling.
+    - :class:`FormHandlerMixin`: Reusable form logic mixin.
+
+**API Views (with persistence):**
+    - :func:`greeting_list_view` / :class:`GreetingListView`: List/create greetings.
+    - :func:`greeting_detail_view` / :class:`GreetingDetailView`: Retrieve/delete greeting.
+
+**API Views (stateless):**
+    - :func:`greet_view` / :class:`GreetView`: Generate greeting without saving.
+
+Helper Functions
+----------------
+
+- :func:`get_client_ip`: Extract client IP from request.
+- :func:`parse_json_body`: Safely parse JSON from request body.
+- :func:`generate_greeting`: Generate greeting message.
+- :func:`greeting_to_dict`: Serialize Greeting model to dict.
+
+Example:
+    URL configuration::
+
+        from swing.hello.views import (
+            hello_response_view,
+            HelloJsonView,
+            GreetingListView,
+        )
+
+        urlpatterns = [
+            path('hello/', hello_response_view),
+            path('api/hello/', HelloJsonView.as_view()),
+            path('api/greetings/', GreetingListView.as_view()),
+        ]
 
 """
 

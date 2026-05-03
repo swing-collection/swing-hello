@@ -5,6 +5,34 @@ Greet Function View
 ===================
 
 Function-based view for stateless greeting generation.
+
+This view generates greeting messages without persisting them to the
+database. Useful for quick API responses where history is not needed.
+
+Functions:
+    greet_view: Generate a greeting message from POST data.
+
+Example:
+    URL configuration::
+
+        urlpatterns = [
+            path('api/greet/', greet_view, name='greet'),
+        ]
+
+    Request::
+
+        POST /api/greet/
+        Content-Type: application/json
+
+        {"name": "Alice", "style": "formal"}
+
+    Response::
+
+        {"name": "Alice", "message": "Good day, Alice.", "style": "formal"}
+
+See Also:
+    - :class:`GreetView`: Class-based equivalent.
+    - :func:`generate_greeting`: The greeting generation logic.
 """
 
 from django.http import HttpRequest, JsonResponse
@@ -21,15 +49,30 @@ from .helper_parse_json_body import parse_json_body
 @require_http_methods(["POST"])
 def greet_view(request: HttpRequest) -> JsonResponse:
     """
-    Generate a greeting without persistence.
+    Generate a greeting message without database persistence.
 
-    POST: Generate a greeting message.
+    Accepts JSON with a name and optional style, returns a generated
+    greeting message. No data is saved to the database.
 
     Args:
-        request: The HTTP request.
+        request: The HTTP POST request with JSON body containing:
+            - name (str): The name to greet (required).
+            - style (str): Greeting style, defaults to 'casual'.
 
     Returns:
-        JsonResponse with greeting message.
+        JsonResponse containing:
+            - name: The input name.
+            - message: The generated greeting.
+            - style: The style used.
+
+    Status Codes:
+        200: Greeting generated successfully.
+        400: Invalid data (missing/invalid name).
+
+    Example:
+        >>> response = greet_view(post_request)
+        >>> response.json()
+        {'name': 'Alice', 'message': 'Hey, Alice!', 'style': 'casual'}
     """
     data = parse_json_body(request)
     name = data.get("name", "").strip()

@@ -4,7 +4,34 @@
 Greeting List Function View
 ===========================
 
-Function-based view for listing and creating greetings.
+Function-based API view for listing and creating greetings.
+
+This module provides a RESTful endpoint for the Greeting model,
+supporting GET (list) and POST (create) operations with JSON
+request/response format.
+
+Functions:
+    greeting_list_view: Handle listing and creating greetings.
+
+Example:
+    URL configuration::
+
+        urlpatterns = [
+            path('api/greetings/', greeting_list_view, name='greeting_list'),
+        ]
+
+    Creating a greeting::
+
+        POST /api/greetings/
+        Content-Type: application/json
+
+        {"name": "Alice", "style": "formal", "language": "en"}
+
+Note:
+    This view is CSRF exempt and requires persistence to be enabled.
+
+See Also:
+    - :class:`GreetingListView`: Class-based equivalent.
 """
 
 from django.http import HttpRequest, JsonResponse
@@ -23,16 +50,31 @@ from .helper_parse_json_body import parse_json_body
 @require_http_methods(["GET", "POST"])
 def greeting_list_view(request: HttpRequest) -> JsonResponse:
     """
-    Handle listing and creating greetings.
+    Handle listing and creating greetings via REST API.
 
-    GET: Returns a list of all greetings.
-    POST: Creates a new greeting.
+    GET: Returns a list of up to 100 greetings.
+    POST: Creates a new greeting from JSON data.
 
     Args:
-        request: The HTTP request.
+        request: The HTTP request (GET or POST).
 
     Returns:
-        JsonResponse with greeting data or error message.
+        JsonResponse containing:
+            - On GET: ``{"count": N, "results": [...]}``
+            - On POST success (201): Greeting data dict
+            - On error: ``{"error": "message"}`` with appropriate status
+
+    Status Codes:
+        200: Successful list retrieval.
+        201: Greeting created successfully.
+        400: Invalid request data (missing/invalid name).
+        503: Persistence is disabled.
+
+    Example:
+        >>> # List greetings
+        >>> response = greeting_list_view(get_request)
+        >>> response.json()['count']
+        42
     """
     if not PERSISTENCE_ENABLED:
         return JsonResponse(

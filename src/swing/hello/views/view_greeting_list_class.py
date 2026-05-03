@@ -4,7 +4,24 @@
 Greeting List Class View
 ========================
 
-Class-based view for listing and creating greetings.
+Class-based API view for listing and creating greetings.
+
+This module provides a RESTful endpoint using Django's class-based
+view pattern. Supports GET (list) and POST (create) operations.
+
+Classes:
+    GreetingListView: CBV for greeting list/create operations.
+
+Example:
+    URL configuration::
+
+        urlpatterns = [
+            path('api/greetings/', GreetingListView.as_view(),
+                 name='greeting_list'),
+        ]
+
+See Also:
+    - :func:`greeting_list_view`: Function-based equivalent.
 """
 
 from django.http import HttpRequest, JsonResponse
@@ -20,13 +37,36 @@ from .helper_parse_json_body import parse_json_body
 
 class GreetingListView(View):
     """
-    Greeting List Class-Based View.
+    Class-based view for listing and creating greetings.
 
-    Handle listing and creating greetings via class-based approach.
+    Provides a REST API interface for the Greeting model with
+    support for listing (GET) and creation (POST) operations.
+
+    Methods:
+        get: List all greetings (up to 100).
+        post: Create a new greeting from JSON data.
+
+    Example:
+        >>> view = GreetingListView.as_view()
+        >>> response = view(request)  # Returns greeting list
     """
 
     def get(self, request: HttpRequest) -> JsonResponse:
-        """List all greetings."""
+        """
+        List all greetings.
+
+        Returns up to 100 greetings ordered by default queryset ordering.
+
+        Args:
+            request: The incoming HTTP request.
+
+        Returns:
+            JsonResponse with count and results array.
+
+        Status Codes:
+            200: Success.
+            503: Persistence is disabled.
+        """
         if not PERSISTENCE_ENABLED:
             return JsonResponse(
                 {"error": _("Persistence is disabled")},
@@ -42,7 +82,23 @@ class GreetingListView(View):
         )
 
     def post(self, request: HttpRequest) -> JsonResponse:
-        """Create a new greeting."""
+        """
+        Create a new greeting.
+
+        Parses JSON from request body and creates a Greeting instance.
+        Validates that name contains only letters and spaces.
+
+        Args:
+            request: The incoming HTTP request with JSON body.
+
+        Returns:
+            JsonResponse with created greeting data.
+
+        Status Codes:
+            201: Created successfully.
+            400: Invalid data (missing/invalid name).
+            503: Persistence is disabled.
+        """
         if not PERSISTENCE_ENABLED:
             return JsonResponse(
                 {"error": _("Persistence is disabled")},

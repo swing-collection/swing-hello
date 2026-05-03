@@ -4,7 +4,28 @@
 Hello Form Function View
 ========================
 
-A function-based view that handles a simple form and returns a greeting message.
+A function-based view for handling form submissions with a greeting response.
+
+This module demonstrates Django form handling in a function-based view,
+processing both GET (display empty form) and POST (process submission)
+requests.
+
+Functions:
+    hello_form_view: Handle form display and submission.
+
+Template:
+    Uses ``swing_hello/hello_form.html``.
+
+Example:
+    URL configuration::
+
+        urlpatterns = [
+            path('hello/', hello_form_view, name='hello_form'),
+        ]
+
+See Also:
+    - :class:`HelloFormView`: Class-based equivalent.
+    - :class:`HelloForm`: The form class used.
 """
 
 from django.http import HttpRequest, HttpResponse
@@ -17,15 +38,31 @@ from ..forms import HelloForm
 
 def hello_form_view(request: HttpRequest) -> HttpResponse:
     """
-    A function-based view that handles a simple form. Renders a greeting
-    message if the form is valid.
+    Handle form display and submission for a personalized greeting.
+
+    On GET: Displays an empty HelloForm.
+    On POST: Validates the form and, if valid, displays a personalized
+    greeting message. Invalid forms are re-displayed with errors.
 
     Args:
-        request (HttpRequest): The incoming HTTP request.
+        request: The incoming HTTP request (GET or POST).
 
     Returns:
-        HttpResponse: The rendered HTML page with the form and greeting
-            message.
+        An HttpResponse with the rendered form template.
+
+    Context:
+        form: The HelloForm instance.
+        message (optional): The greeting message if form was valid.
+
+    Template:
+        swing_hello/hello_form.html
+
+    Example:
+        >>> # POST with valid data
+        >>> request = RequestFactory().post('/hello/', {'name': 'Alice'})
+        >>> response = hello_form_view(request)
+        >>> 'Hello, Alice!' in response.content.decode()
+        True
     """
     if request.method == "POST":
         form = HelloForm(data=request.POST)

@@ -1,10 +1,30 @@
 # -*- coding: utf-8 -*-
 
 """
-CLI Parser
-==========
+CLI Argument Parser
+===================
 
-Command-line argument parser for the Swing Hello application.
+Command-line argument parser configuration for the Swing Hello application.
+
+This module creates and configures an ``argparse.ArgumentParser`` with
+subcommands for various CLI operations.
+
+Functions:
+    create_parser: Create and configure the argument parser.
+
+Subcommands:
+    status: Check application status.
+    version: Display version information.
+    check: Run Django system checks.
+    greet: Generate a greeting (takes name and optional style).
+
+Example:
+    >>> parser = create_parser()
+    >>> args = parser.parse_args(['greet', 'Alice', '--style', 'formal'])
+    >>> args.name
+    'Alice'
+    >>> args.style
+    'formal'
 """
 
 # Import | Standard Library
@@ -13,10 +33,22 @@ import argparse
 
 def create_parser() -> argparse.ArgumentParser:
     """
-    Create the argument parser for the CLI.
+    Create and configure the CLI argument parser.
+
+    Creates a parser with subcommands for status, version, check,
+    and greet operations. The greet subcommand accepts a name
+    argument and optional style flag.
 
     Returns:
-        argparse.ArgumentParser: The configured parser.
+        A configured ArgumentParser with all subcommands registered.
+
+    Example:
+        >>> parser = create_parser()
+        >>> parser.parse_args(['status'])
+        Namespace(command='status')
+
+        >>> parser.parse_args(['greet', 'Bob'])
+        Namespace(command='greet', name='Bob', style='casual')
     """
     parser = argparse.ArgumentParser(
         prog="swing-hello",

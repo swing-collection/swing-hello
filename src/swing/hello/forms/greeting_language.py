@@ -1,17 +1,68 @@
 # -*- coding: utf-8 -*-
 
 """
-Greeting Language
-=================
+Greeting Language Constants
+===========================
 
-Defines the available language choices for greetings.
+Defines the available language choices for greetings in the Swing Hello
+application.
+
+This module provides ISO 639-1 language codes and human-readable labels
+for use in Django form fields and model fields. Supports 12 languages
+including RTL languages (Arabic).
+
+Classes:
+    GreetingLanguage: Container for language constants and Django-compatible
+        choice tuples.
+
+Supported Languages:
+    - English (en)
+    - Dutch (nl)
+    - German (de)
+    - French (fr)
+    - Spanish (es)
+    - Italian (it)
+    - Portuguese (pt)
+    - Japanese (ja)
+    - Chinese Simplified (zh_Hans)
+    - Korean (ko)
+    - Russian (ru)
+    - Arabic (ar)
+
+Example:
+    Using in a Django form::
+
+        language = forms.ChoiceField(
+            choices=GreetingLanguage.CHOICES,
+            initial=GreetingLanguage.ENGLISH,
+        )
 """
 
 from django.utils.translation import gettext_lazy as _
 
 
 class GreetingLanguage:
-    """Available language choices."""
+    """
+    Container for language code constants and choices.
+
+    Provides ISO 639-1 language codes for all supported greeting languages.
+    Labels are translatable using Django's internationalization framework.
+
+    Attributes:
+        ENGLISH: Language code 'en' for English.
+        DUTCH: Language code 'nl' for Dutch.
+        GERMAN: Language code 'de' for German.
+        FRENCH: Language code 'fr' for French.
+        SPANISH: Language code 'es' for Spanish.
+        ITALIAN: Language code 'it' for Italian.
+        PORTUGUESE: Language code 'pt' for Portuguese.
+        JAPANESE: Language code 'ja' for Japanese.
+        CHINESE: Language code 'zh_Hans' for Simplified Chinese.
+        KOREAN: Language code 'ko' for Korean.
+        RUSSIAN: Language code 'ru' for Russian.
+        ARABIC: Language code 'ar' for Arabic.
+        CHOICES: List of (code, label) tuples for form/model fields.
+    """
 
     ENGLISH = "en"
     DUTCH = "nl"

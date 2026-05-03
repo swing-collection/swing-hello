@@ -5,6 +5,22 @@ Greet Class View
 ================
 
 Class-based view for stateless greeting generation.
+
+This view generates greeting messages without database persistence,
+using Django's class-based view pattern.
+
+Classes:
+    GreetView: CBV for stateless greeting generation.
+
+Example:
+    URL configuration::
+
+        urlpatterns = [
+            path('api/greet/', GreetView.as_view(), name='greet'),
+        ]
+
+See Also:
+    - :func:`greet_view`: Function-based equivalent.
 """
 
 from django.http import HttpRequest, JsonResponse
@@ -18,13 +34,35 @@ from .helper_parse_json_body import parse_json_body
 
 class GreetView(View):
     """
-    Stateless Greet Class-Based View.
+    Class-based view for stateless greeting generation.
 
-    Generate a greeting without persistence.
+    Generates greeting messages without saving to the database.
+    Accepts POST requests with JSON containing name and optional style.
+
+    Methods:
+        post: Generate a greeting from JSON request data.
+
+    Example:
+        >>> view = GreetView.as_view()
+        >>> response = view(request)
+        >>> response.json()['message']
+        'Hey, Alice!'
     """
 
     def post(self, request: HttpRequest) -> JsonResponse:
-        """Generate a stateless greeting."""
+        """
+        Generate a stateless greeting from POST data.
+
+        Args:
+            request: The HTTP POST request with JSON body.
+
+        Returns:
+            JsonResponse with name, message, and style.
+
+        Status Codes:
+            200: Greeting generated successfully.
+            400: Invalid data (missing/invalid name).
+        """
         data = parse_json_body(request)
         name = data.get("name", "").strip()
 

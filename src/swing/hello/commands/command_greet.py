@@ -4,7 +4,24 @@
 Greet Command
 =============
 
-CLI command to generate a greeting from the command line.
+CLI command to generate greetings from the command line.
+
+This command generates and displays a greeting message for a given
+name, with optional style customization.
+
+Classes:
+    GreetCommand: Generate a greeting message.
+
+Styles:
+    - formal: Professional greeting ("Good day, Name.")
+    - casual: Friendly greeting ("Hello, Name!")
+    - enthusiastic: Excited greeting ("Hey Name! So excited...")
+
+Example:
+    >>> cmd = GreetCommand(name='Alice', style='formal')
+    >>> cmd.run()
+    Good day, Alice. It is a pleasure to meet you.
+    0
 """
 
 # Import | Standard Library
@@ -13,10 +30,22 @@ import sys
 
 class GreetCommand:
     """
-    CLI Command to Generate a Greeting
-    ===================================
+    CLI command to generate a greeting message.
 
-    Generate a greeting from the command line.
+    Takes a name and optional style to generate an appropriate
+    greeting message displayed to stdout.
+
+    Attributes:
+        name: The name to greet.
+        style: Greeting style ('formal', 'casual', 'enthusiastic').
+
+    Methods:
+        run: Generate and display the greeting.
+
+    Example:
+        >>> GreetCommand('Bob', 'enthusiastic').run()
+        Hey Bob! So excited to see you!
+        0
     """
 
     def __init__(self, name: str, style: str = "casual") -> None:
@@ -24,18 +53,28 @@ class GreetCommand:
         Initialize the greet command.
 
         Args:
-            name: The name to greet.
-            style: The greeting style (formal, casual, enthusiastic).
+            name: The name to include in the greeting.
+            style: The greeting style. One of 'formal', 'casual',
+                or 'enthusiastic'. Defaults to 'casual'.
         """
         self.name = name
         self.style = style
 
     def run(self) -> int:
         """
-        Generate and display a greeting.
+        Generate and display a greeting message.
+
+        Looks up the appropriate message template for the configured
+        style and formats it with the name. Falls back to casual
+        style if an unknown style is specified.
 
         Returns:
-            int: Exit code (0 for success, 1 for error).
+            0 on success, 1 on error.
+
+        Example:
+            >>> GreetCommand('Alice', 'formal').run()
+            Good day, Alice. It is a pleasure to meet you.
+            0
         """
         try:
             messages = {

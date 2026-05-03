@@ -9,15 +9,41 @@
 Greeting Models Module
 ======================
 
-This module defines the data models for the Swing Hello application.
-The Greeting model provides optional persistence for greeting messages.
+This module defines the data models for the Swing Hello application,
+providing optional persistence for greeting messages with full CRUD support.
 
-Models:
-    - Greeting: Stores greeting records with name, message, and metadata.
+The module supports both stateful (with database) and stateless deployments
+through the ``SWING_HELLO_ENABLE_PERSISTENCE`` setting.
+
+Classes:
+    Greeting: Django model for storing greeting records with metadata.
+
+Constants:
+    PERSISTENCE_ENABLED: Boolean indicating if database persistence is active.
+
+Example:
+    Creating a greeting with persistence::
+
+        from swing.hello.models import Greeting
+
+        greeting = Greeting.create_greeting(
+            name="Alice",
+            style="formal",
+            language="en",
+        )
+        print(greeting.message)  # "Good day, Alice. It is a pleasure..."
+
+    Checking persistence status::
+
+        from swing.hello.models import PERSISTENCE_ENABLED
+
+        if PERSISTENCE_ENABLED:
+            greetings = Greeting.objects.all()
 
 Note:
-    The model is optional for stateless deployments. Set
-    `SWING_HELLO_ENABLE_PERSISTENCE = False` in Django settings to disable.
+    To disable persistence, add to your Django settings::
+
+        SWING_HELLO_ENABLE_PERSISTENCE = False
 """
 
 # =============================================================================
@@ -46,23 +72,42 @@ PERSISTENCE_ENABLED = getattr(settings, "SWING_HELLO_ENABLE_PERSISTENCE", True)
 
 class Greeting(models.Model):
     """
-    Greeting Model
-    ==============
+    Greeting Model for storing greeting records.
 
-    Stores greeting records with associated metadata.
+    This model stores personalized greeting messages along with metadata
+    such as the greeting style, language, creation timestamp, and optionally
+    the requester's IP address.
+
+    The model supports three greeting styles (formal, casual, enthusiastic)
+    and can be extended to support additional languages through Django's
+    internationalization framework.
 
     Attributes:
-        name (str): The name of the person being greeted.
-        message (str): The generated greeting message.
-        style (str): The greeting style (formal, casual, enthusiastic).
-        language (str): The language code used for the greeting.
-        created_at (datetime): Timestamp when the greeting was created.
-        ip_address (str | None): Optional IP address of the requester.
+        name: The name of the person being greeted (max 100 chars).
+        message: The generated greeting message (max 255 chars).
+        style: The greeting style, one of 'formal', 'casual', 'enthusiastic'.
+        language: The ISO 639-1 language code (e.g., 'en', 'nl', 'de').
+        created_at: UTC timestamp when the greeting was created.
+        ip_address: Optional IPv4/IPv6 address of the requester.
 
+    Example:
+        >>> greeting = Greeting.create_greeting(name="Bob", style="casual")
+        >>> print(greeting)
+        Bob: Hello, Bob!
+
+    See Also:
+        - :func:`create_greeting`: Factory method for creating greetings.
+        - :class:`Style`: Enum of available greeting styles.
     """
 
     class Style(models.TextChoices):
-        """Greeting style choices."""
+        """Enumeration of greeting style choices.
+
+        Defines the available styles for greeting messages:
+            - FORMAL: Professional, respectful greeting.
+            - CASUAL: Friendly, everyday greeting.
+            - ENTHUSIASTIC: Excited, energetic greeting.
+        """
 
         FORMAL = "formal", _("Formal")
         CASUAL = "casual", _("Casual")
@@ -109,7 +154,11 @@ class Greeting(models.Model):
     )
 
     class Meta:
-        """Model metadata."""
+        """Django model metadata configuration.
+
+        Configures display names, default ordering, and database indexes
+        for optimal query performance.
+        """
 
         verbose_name = _("Greeting")
         verbose_name_plural = _("Greetings")
@@ -120,11 +169,30 @@ class Greeting(models.Model):
         ]
 
     def __str__(self) -> str:
-        """Return string representation."""
+        """Return human-readable string representation.
+
+        Returns:
+            A string in the format "name: message".
+
+        Example:
+            >>> greeting = Greeting(name="Alice", message="Hello, Alice!")
+            >>> str(greeting)
+            'Alice: Hello, Alice!'
+        """
         return f"{self.name}: {self.message}"
 
     def __repr__(self) -> str:
-        """Return detailed representation."""
+        """Return detailed developer-friendly representation.
+
+        Returns:
+            A string containing the model name and key attributes
+            suitable for debugging.
+
+        Example:
+            >>> greeting = Greeting(pk=1, name="Alice", style="casual")
+            >>> repr(greeting)
+            "Greeting(id=1, name='Alice', style='casual', created_at=...)"
+        """
         return (
             f"Greeting(id={self.pk}, name='{self.name}', "
             f"style='{self.style}', created_at={self.created_at})"
@@ -139,16 +207,38 @@ class Greeting(models.Model):
         ip_address: str | None = None,
     ) -> "Greeting":
         """
-        Create and save a new greeting.
+        Factory method to create and persist a new greeting.
+
+        Creates a personalized greeting message based on the specified style
+        and saves it to the database. The message is automatically generated
+        using Django's translation system for i18n support.
 
         Args:
-            name: The name to greet.
-            style: Greeting style (formal, casual, enthusiastic).
-            language: Language code for the greeting.
-            ip_address: Optional IP address of the requester.
+            name: The name of the person to greet. Will appear in the
+                generated message.
+            style: The greeting style. Must be one of 'formal', 'casual',
+                or 'enthusiastic'. Defaults to 'casual'.
+            language: ISO 639-1 language code for the greeting.
+                Defaults to 'en' (English).
+            ip_address: Optional IPv4 or IPv6 address of the requester
+                for analytics or logging purposes.
 
         Returns:
-            The created Greeting instance.
+            A saved Greeting instance with the generated message.
+
+        Raises:
+            django.db.IntegrityError: If the greeting cannot be saved
+                due to database constraints.
+
+        Example:
+            >>> greeting = Greeting.create_greeting(
+            ...     name="Alice",
+            ...     style="formal",
+            ...     language="en",
+            ...     ip_address="192.168.1.1"
+            ... )
+            >>> print(greeting.message)
+            Good day, Alice. It is a pleasure to meet you.
         """
         from django.utils.translation import gettext as _
 

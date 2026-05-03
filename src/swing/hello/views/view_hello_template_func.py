@@ -4,7 +4,27 @@
 Hello Template Function View
 ============================
 
-A function-based view that renders a template with a given context.
+A function-based view that renders an HTML template with context data.
+
+This module demonstrates Django's template rendering using the ``render``
+shortcut function. It provides a title and content to the template.
+
+Functions:
+    hello_template_view: Render the hello template with context.
+
+Template:
+    Uses ``swing_hello/hello_template.html`` which should display
+    the title and content variables.
+
+Example:
+    URL configuration::
+
+        urlpatterns = [
+            path('hello/', hello_template_view, name='hello'),
+        ]
+
+See Also:
+    - :class:`HelloTemplateView`: Class-based equivalent.
 """
 
 # Import | Standard Library
@@ -17,14 +37,23 @@ from django.utils.translation import gettext as _
 
 def hello_template_view(request: HttpRequest) -> HttpResponse:
     """
-    A function-based view that renders a template with a given context.
+    Render the hello template with a title and content.
 
-    Parameters:
-        request (HttpRequest): The HTTP request object.
+    Renders an HTML template with context containing a translated
+    title and sample content text.
+
+    Args:
+        request: The incoming HTTP request.
 
     Returns:
-        HttpResponse: A response object that renders the template
-        with the provided context.
+        An HttpResponse with the rendered HTML template.
+
+    Context:
+        title: Translated "Hello!" string.
+        content: Lorem ipsum placeholder text.
+
+    Template:
+        swing_hello/hello_template.html
     """
     context: dict[str, Any] = {
         "title": _("Hello!"),
