@@ -32,6 +32,7 @@ Test Classes:
 from typing import cast
 
 from django.http import HttpRequest, HttpResponse
+from django.template.response import TemplateResponse
 from django.test import RequestFactory
 from django.utils.translation import gettext as _
 
@@ -116,7 +117,8 @@ class TestHelloTemplateView:
         sit amet".
         """
         request: HttpRequest = self.factory.get("/hello/template")
-        response = cast(HttpResponse, HelloTemplateView.as_view()(request))
+        response = cast(TemplateResponse, HelloTemplateView.as_view()(request))
+        response.render()
 
         assert response.status_code == 200
         assert _("Hello!") in response.content.decode()

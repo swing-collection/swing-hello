@@ -71,10 +71,3 @@ __email__ = "lars@scape.press"
 __status__ = "Alpha"
 __url__ = "https://github.com/scape-agency/swing-hello"
 __description__ = "A Django app to demonstrate fundamental web development concepts."
-
-
-# =============================================================================
-# App Configuration
-# =============================================================================
-
-default_app_config = "swing.hello.apps.SwingHelloConfig"

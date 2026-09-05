@@ -124,12 +124,26 @@ class TestGreetingFormValidation:
         assert form.is_valid()
 
     def test_default_style_and_language(self) -> None:
-        """Test that style and language have defaults."""
+        """Test that style and language are optional and omitting them
+        is valid.
+
+        Note: Django's ``ChoiceField`` does not fall back to ``initial``
+        when the field is absent from submitted data with
+        ``required=False`` -- ``initial`` only pre-populates unbound
+        (rendered) forms. So ``cleaned_data`` holds an empty string here,
+        not the field's ``initial`` value. The "defaulting" instead
+        happens downstream in ``get_greeting_message``/``save``, which
+        fall back to casual/English when the cleaned value is empty.
+        """
         form = GreetingForm(data={"name": "John"})
         assert form.is_valid()
-        # Defaults should be applied
-        assert form.cleaned_data["style"] == GreetingStyle.CASUAL
-        assert form.cleaned_data["language"] == GreetingLanguage.ENGLISH
+        assert form.cleaned_data["style"] == ""
+        assert form.cleaned_data["language"] == ""
+        # Downstream fallback still resolves to the documented defaults.
+        assert form.get_greeting_message() == "Hello, John!"
+        saved = form.save()
+        assert saved["style"] == ""
+        assert saved["language"] == ""
 
     def test_formal_greeting_message(self) -> None:
         """Test formal greeting message generation."""

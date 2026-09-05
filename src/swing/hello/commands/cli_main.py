@@ -30,7 +30,7 @@ Example:
 """
 
 # Import | Standard Library
-from typing import Sequence
+from collections.abc import Sequence
 
 # Import | Local
 from .cli_parser import create_parser

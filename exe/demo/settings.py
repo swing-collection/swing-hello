@@ -31,7 +31,6 @@ and `ALLOWED_HOSTS` appropriately for deployment.
 
 # Import | Standard Library
 from pathlib import Path
-from typing import Dict, List
 
 # Import | Local Modules
 
@@ -51,14 +50,14 @@ DEBUG = True
 
 # Hosts allowed to access the application
 # Define allowed hosts in production, e.g., ["example.com"]
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: list[str] = []
 
 
 # =============================================================================
 # Installed Applications
 # =============================================================================
 
-INSTALLED_APPS: List[str] = [
+INSTALLED_APPS: list[str] = [
     # Default Django apps
     "django.contrib.admin",
     "django.contrib.auth",
@@ -75,7 +74,7 @@ INSTALLED_APPS: List[str] = [
 # Middleware
 # =============================================================================
 
-MIDDLEWARE: List[str] = [
+MIDDLEWARE: list[str] = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -138,7 +137,7 @@ DATABASES = {
 # Password Validation
 # =============================================================================
 
-AUTH_PASSWORD_VALIDATORS: List[Dict[str, str]] = [
+AUTH_PASSWORD_VALIDATORS: list[dict[str, str]] = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
@@ -169,7 +168,7 @@ USE_TZ = True  # Use timezone-aware datetimes
 # =============================================================================
 
 STATIC_URL = "/static/"  # URL to serve static files
-STATICFILES_DIRS: List[Path] = [BASE_DIR / "static"]  # Additional static files
+STATICFILES_DIRS: list[Path] = [BASE_DIR / "static"]  # Additional static files
 
 
 # =============================================================================
